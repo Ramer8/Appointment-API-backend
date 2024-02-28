@@ -20,6 +20,16 @@ export class Appointments1709019870403 implements MigrationInterface {
             default: "now()",
             onUpdate: "now()",
           },
+          {
+            name: "user_id",
+            type: "int",
+            isNullable:true
+          },
+          {
+            name: "service_id",
+            type: "int",
+            isNullable:true
+          },
         ],
         foreignKeys: [
           {

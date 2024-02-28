@@ -51,7 +51,7 @@ export class Users1709019847564 implements MigrationInterface {
         ],
         foreignKeys: [
           {
-            columnNames: ["role_id"],//revisar si es (id INT)?
+            columnNames: ["role_id"],
             referencedTableName: "roles",
             referencedColumnNames: ["id"],
             onDelete: "CASCADE",
