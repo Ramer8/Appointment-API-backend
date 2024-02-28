@@ -43,6 +43,12 @@ export class Users1709019847564 implements MigrationInterface {
             default: "now()",
             onUpdate: "now()",
           },
+          // {
+          //   name: "updated_at",
+          //   type: "timestamp",
+          //   default: "now()",
+          //   onUpdate: "now()",
+          // },
           {
             name: "role_id",
             type: "int",
