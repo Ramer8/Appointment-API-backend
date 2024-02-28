@@ -1,6 +1,7 @@
 import 'dotenv/config'
 import express, {Application} from "express";
 import { createdRoles, deletedRoles, getRoles, updatedRoles } from './controllers/roleController';
+import { LoginUser, RegisterUser } from './controllers/authController';
 
 
 export const app: Application = express();
@@ -13,6 +14,9 @@ app.get("/healthy", (req, res) => {
     message: "Server is healthy",
   })
 })
+// register & login routes
+app.post('/api/auth/register', RegisterUser);
+app.post('/api/auth/login', LoginUser);
 
 // roles routes
 app.get("/roles",getRoles)
@@ -23,4 +27,11 @@ app.delete("/roles/:id",deletedRoles)
 //example create role json 
 //{
 //   "name":"admin"
+// }
+//example create user json
+// {
+//   "first_name":"Juan Roman",
+//   "last_name": "Riquelme",
+//   "password_hash":"la12bocqR$",
+//   "email":"eltopoyiyo@bocajr.com"
 // }
