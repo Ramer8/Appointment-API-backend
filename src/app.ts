@@ -16,6 +16,7 @@ import {
   updateUserbyId,
 } from "./controllers/userController"
 import { auth } from "./middlewares/auth"
+import { isSuperAdmin } from "./middlewares/isSuperAdmin"
 
 export const app: Application = express()
 
@@ -38,7 +39,7 @@ app.put("/roles/:id", updatedRoles)
 app.delete("/roles/:id", deletedRoles)
 
 // users routes super_admin
-app.get("/api/users", auth, getUsers)
+app.get("/api/users", auth, isSuperAdmin, getUsers)
 app.get("/api/users/:email", getUserbyEmail)
 app.delete("/api/users/:id", deleteUserById)
 app.put("/api/users/:id/role", updateUserRole)
@@ -62,3 +63,10 @@ app.put("/api/users/profile/:id", updateUserbyId)
 // {
 // "role_id": 2
 // }
+//example string token on http://localhost:4500/api/users
+// In Auth, Bearer put this recent created token string
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOj
+// EsInJvbGVOYW1lIjoiYWRtaW4iLCJpYXQiOjE3MDkyMjEzMTYsImV4
+// cCI6MTcwOTIyODUxNn0.622sPBXaBaI-I_929gP2MHuN21Gql-SUxen6HDp1eWg
+
+//Contiene el userID,
