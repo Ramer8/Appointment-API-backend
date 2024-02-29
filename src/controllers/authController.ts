@@ -52,11 +52,25 @@ export const RegisterUser = async (req : Request, res : Response) => {
         });
     }
 }
-export const LoginUser = (req : Request, res : Response) => {
+export const LoginUser = async (req : Request, res : Response) => {
     try {
+        const userEmail = req.params.email
+        const user = await User.find({
+        where:{
+            email: userEmail,
+        }
+    })
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "user not found",
+      })
+    }
         return res.status(201).json({
             success: true,
-            message: "User logged successfully"
+            message: "User logged successfully",
+            data: user,
+
         })
     } catch (error) {
         return res.status(500).json({

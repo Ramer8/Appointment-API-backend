@@ -96,20 +96,12 @@ console.log(user);
         message: "user not found",
       })
     }
-    // const roleUserUpdated = await User.update(
-    //   {
-    //     id: parseInt(userId)
-    //   },
-    //   {
-    //     // roleId : role_id
-    //   }
-    // ) 
     const roleUserUpdated = await User.update(
       {
         id: parseInt(userId)
       },
       {
-        id : role_id
+        roleId :parseInt(role_id)
       }
     ) 
     console.log("the role id updated is ",role_id)
