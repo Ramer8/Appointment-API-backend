@@ -22,8 +22,8 @@ export class User extends BaseEntity{
   @Column({name: 'created_at'})
   createdAt!: Date
 
-//   @Column({name: 'updated_at'})
-//   updatedAt!: Date
+  @Column({name: 'role_id'})
+  roleId!: number
 
 //verificar las relaciones con user y roles
 
