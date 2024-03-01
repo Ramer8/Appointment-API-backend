@@ -17,6 +17,18 @@ import {
 } from "./controllers/userController"
 import { auth } from "./middlewares/auth"
 import { isSuperAdmin } from "./middlewares/isSuperAdmin"
+import {
+  createAppointment,
+  getAppointments,
+  showMyAppointment,
+  updateAppointment,
+} from "./controllers/appointmentController"
+import {
+  createService,
+  deleteService,
+  getServices,
+  updateService,
+} from "./controllers/serviceControllers"
 
 export const app: Application = express()
 
@@ -48,12 +60,17 @@ app.put("/api/users/:id/role", updateUserRole)
 app.get("/api/users/profile/:id", getUserbyId)
 app.put("/api/users/profile/:id", updateUserbyId)
 
-// Appointment user
+// Service routes
+app.post("/api/services", createService)
+app.get("/api/services", getServices)
+app.put("/api/services/:id", updateService)
+app.delete("/api/services/:id", deleteService)
 
+// Appointment routes
 app.post("/api/appointments", createAppointment)
+app.get("/api/appointments", getAppointments)
 app.put("/api/appointments/ :id", updateAppointment)
-app.get("/api/appointments/:id", recoverAppointment)
-app.get("/api/appointments", showMyAppointments)
+app.get("/api/appointments/:id", showMyAppointment)
 
 //example create role json
 //{
@@ -75,5 +92,10 @@ app.get("/api/appointments", showMyAppointments)
 // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOj
 // EsInJvbGVOYW1lIjoiYWRtaW4iLCJpYXQiOjE3MDkyMjEzMTYsImV4
 // cCI6MTcwOTIyODUxNn0.622sPBXaBaI-I_929gP2MHuN21Gql-SUxen6HDp1eWg
-
 //Contiene el userID,
+
+//Example service
+// {
+//   "name":"Full arm tatoo",
+//   "description":"arm fully covered from shoulder to hand"
+// }
