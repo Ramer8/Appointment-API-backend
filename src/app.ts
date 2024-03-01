@@ -48,6 +48,13 @@ app.put("/api/users/:id/role", updateUserRole)
 app.get("/api/users/profile/:id", getUserbyId)
 app.put("/api/users/profile/:id", updateUserbyId)
 
+// Appointment user
+
+app.post("/api/appointments", createAppointment)
+app.put("/api/appointments/ :id", updateAppointment)
+app.get("/api/appointments/:id", recoverAppointment)
+app.get("/api/appointments", showMyAppointments)
+
 //example create role json
 //{
 //   "name":"admin"
