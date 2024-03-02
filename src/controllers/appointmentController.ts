@@ -48,13 +48,22 @@ export const getAppointments = async (req: Request, res: Response) => {
   }
 }
 
-export const updateAppointment = (req: Request, res: Response) => {
-  req.params.id
-  console.log(req.params.id)
-
+export const recoverAppointmentWithId = async (req: Request, res: Response) => {
+  const { id } = req.params
+  const appointment = await Appointment.findOneBy({
+    id: parseInt(id),
+  })
+  console.log(appointment)
+  if (!appointment) {
+    return res.status(404).json({
+      success: false,
+      message: "Appointment not found",
+    })
+  }
   res.status(200).json({
     success: true,
-    message: "Appointment updated successfuly",
+    message: "Appointment showing successfuly",
+    data: appointment,
   })
 }
 

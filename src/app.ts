@@ -19,9 +19,8 @@ import { auth } from "./middlewares/auth"
 import { isSuperAdmin } from "./middlewares/isSuperAdmin"
 import {
   createAppointment,
-  getAppointments,
+  recoverAppointmentWithId,
   showMyAppointment,
-  updateAppointment,
 } from "./controllers/appointmentController"
 import {
   createService,
@@ -67,10 +66,13 @@ app.put("/api/services/:id", updateService)
 app.delete("/api/services/:id", deleteService)
 
 // Appointment routes
-app.post("/api/appointments", createAppointment)
-app.get("/api/appointments", getAppointments)
-app.put("/api/appointments/ :id", updateAppointment)
-app.get("/api/appointments/:id", showMyAppointment)
+app.post("/api/appointments", createAppointment) //ready
+
+// app.put("/api/appointments", updateAppointment) // (con token)
+
+app.put("/api/appointments/:id", recoverAppointmentWithId) //ready
+
+app.get("/api/appointments", showMyAppointment) // (con token)
 
 //example create role json
 //{
