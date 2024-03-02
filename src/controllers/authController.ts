@@ -9,19 +9,11 @@ export const RegisterUser = async (req: Request, res: Response) => {
     const reqFirstName: string = req.body.first_name
     const reqLastName: string = req.body.last_name
     const reqPass: string = req.body.password_hash
-
-    const regexpPass: RegExp =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]+$/
-
-    if (
-      reqPass.length < 8 ||
-      !regexpPass.test(reqPass) ||
-      reqPass.includes(" ")
-    ) {
+    //
+    if (reqPass.length < 6 || reqPass.length > 10) {
       return res.status(400).json({
         success: false,
-        message:
-          "Password must be shorter than 8 and without special characters, mayus, minus and/or numbers and with spaces)",
+        message: "the password has to be between 6 and 10 characters",
       })
     }
     const validEmail: RegExp = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,8})+$/
@@ -39,7 +31,7 @@ export const RegisterUser = async (req: Request, res: Response) => {
       email: reqMail,
       password: cryptedPass,
       role: {
-        id: 1,
+        id: 2,
       },
     }).save()
 

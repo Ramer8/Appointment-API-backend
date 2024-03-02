@@ -7,7 +7,6 @@ import {
   PrimaryGeneratedColumn,
 } from "typeorm"
 import { Service } from "./Service"
-
 @Entity("appointments")
 export class Appointment extends BaseEntity {
   @PrimaryGeneratedColumn()

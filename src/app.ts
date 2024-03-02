@@ -18,9 +18,9 @@ import {
 import { auth } from "./middlewares/auth"
 import { isSuperAdmin } from "./middlewares/isSuperAdmin"
 import {
-  createAppointment,
+  createAppointmentWithToken,
   retrieveAppointmentWithId,
-  showMyAppointment,
+  showMyAppointmentsWithToken,
 } from "./controllers/appointmentController"
 import {
   createService,
@@ -60,19 +60,21 @@ app.get("/api/users/profile/:id", getUserbyId)
 app.put("/api/users/profile/:id", updateUserbyId)
 
 // Service routes
-app.post("/api/services", createService)
-app.get("/api/services", getServices)
+app.post("/api/services", createService) //ready
+app.get("/api/services", getServices) // ready
 app.put("/api/services/:id", updateService)
 app.delete("/api/services/:id", deleteService)
 
 // Appointment routes
-app.post("/api/appointments", createAppointment) //ready
+app.post("/api/appointments", auth, createAppointmentWithToken) // (con token) ready
 
 // app.put("/api/appointments", updateAppointment) // (con token)
 
-app.put("/api/appointments/:id", retrieveAppointmentWithId) //ready
+app.put("/api/appointments/:id", retrieveAppointmentWithId) // ready
 
-app.get("/api/appointments", showMyAppointment) // (con token)
+app.get("/api/appointments", auth, showMyAppointmentsWithToken) // (con token)
+
+// app.get("/api/appointments", showMyAppointment) // (con token)
 
 //example create role json
 //{
@@ -82,8 +84,8 @@ app.get("/api/appointments", showMyAppointment) // (con token)
 // {
 //   "first_name":"Juan Roman",
 //   "last_name": "Riquelme",
-//   "password_hash":"la12bocqR$",
-//   "email":"eltopoyiyo@bocajr.com"
+// "password_hash":"la12bocqR$",
+// "email":"eltopoyiyo@bocajr.com"
 // }
 //example change role
 // {
@@ -100,4 +102,10 @@ app.get("/api/appointments", showMyAppointment) // (con token)
 // {
 //   "name":"Full arm tatoo",
 //   "description":"arm fully covered from shoulder to hand"
+// }
+
+// //Example login
+// {
+//     "passwordBody":"la12bocqR$",
+//   "email":"eltopoyiyo@bocajr.com"
 // }

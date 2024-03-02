@@ -4,10 +4,10 @@ import { User } from "../models/User"
 export const getUsers = async (req: Request, res: Response) => {
   try {
     const users = await User.find({
-        order :{
-            lastName: "ASC",
-        }
-     } )
+      order: {
+        lastName: "ASC",
+      },
+    })
 
     res.status(200).json({
       success: true,
@@ -34,7 +34,6 @@ export const getUserbyId = async (req: Request, res: Response) => {
       return res.status(404).json({
         success: false,
         message: "user not found",
-        data: user,
       })
     }
     res.status(200).json({
@@ -54,9 +53,9 @@ export const getUserbyEmail = async (req: Request, res: Response) => {
   try {
     const userEmail = req.params.email
     const user = await User.find({
-        where:{
-            email: userEmail,
-        }
+      where: {
+        email: userEmail,
+      },
     })
     if (!user) {
       return res.status(404).json({
@@ -80,16 +79,13 @@ export const getUserbyEmail = async (req: Request, res: Response) => {
 
 export const updateUserRole = async (req: Request, res: Response) => {
   try {
-
     const userId = req.params.id
-    const {role_id} = req.body
-//validar datos
-    const user = await User.findOneBy(
-      {
+    const { role_id } = req.body
+    //validar datos
+    const user = await User.findOneBy({
       id: parseInt(userId),
-    }
-    )
-console.log(user);
+    })
+    console.log(user)
     if (!user) {
       return res.status(404).json({
         success: false,
@@ -98,20 +94,19 @@ console.log(user);
     }
     const roleUserUpdated = await User.update(
       {
-        id: parseInt(userId)
+        id: parseInt(userId),
       },
       {
-        roleId :parseInt(role_id)
+        roleId: parseInt(role_id),
       }
-    ) 
-    console.log("the role id updated is ",role_id)
+    )
+    console.log("the role id updated is ", role_id)
     //responder
     res.status(200).json({
       success: true,
       message: "Role user updated ",
-       data: roleUserUpdated,
+      data: roleUserUpdated,
     })
-    
   } catch (error) {
     res.status(500).json({
       success: true,
@@ -122,17 +117,14 @@ console.log(user);
 }
 export const updateUserbyId = async (req: Request, res: Response) => {
   try {
-
     const userId = req.params.id
-    const {first_name, last_name} = req.body
-console.log("the new name is: ", first_name, last_name)
+    const { first_name, last_name } = req.body
+    console.log("the new name is: ", first_name, last_name)
 
-//validar datos
-    const user = await User.findOneBy(
-      {
+    //validar datos
+    const user = await User.findOneBy({
       id: parseInt(userId),
-    }
-    )
+    })
 
     if (!user) {
       return res.status(404).json({
@@ -142,7 +134,7 @@ console.log("the new name is: ", first_name, last_name)
     }
     const userUpdated = await User.update(
       {
-        id: parseInt(userId)
+        id: parseInt(userId),
       },
       {
         firstName: first_name,
@@ -154,11 +146,10 @@ console.log("the new name is: ", first_name, last_name)
     res.status(200).json({
       success: true,
       message: "User updated ",
-       data: userUpdated,
+      data: userUpdated,
       first_name,
-      last_name
+      last_name,
     })
-    
   } catch (error) {
     res.status(500).json({
       success: true,
@@ -170,13 +161,12 @@ console.log("the new name is: ", first_name, last_name)
 
 export const deleteUserById = async (req: Request, res: Response) => {
   try {
-
-    console.log(req.params.id);
+    console.log(req.params.id)
 
     const userId = req.params.id
     // const userToRemove = await User.findOneBy({
     const userToRemove: any = await User.findOneBy({
-      id:parseInt(userId)
+      id: parseInt(userId),
     })
 
     if (!userToRemove) {
@@ -185,15 +175,14 @@ export const deleteUserById = async (req: Request, res: Response) => {
         message: "User can't be deleted because not exist in DB",
       })
     }
-    
- const userDeleted = await User.delete(userToRemove)
+
+    const userDeleted = await User.delete(userToRemove)
 
     res.status(200).json({
       success: false,
       message: "user deleted successfully",
-      data: userDeleted
+      data: userDeleted,
     })
-
   } catch (error) {
     res.status(500).json({
       success: false,
