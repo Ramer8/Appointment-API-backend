@@ -115,19 +115,85 @@ export const retrieveAppointmentWithId = async (
   })
 }
 
-export const showMyAppointment = async (req: Request, res: Response) => {
+export const getAllAppointmentsSuper_admin = async (
+  req: Request,
+  res: Response
+) => {
   const appointment = await Appointment.find({
-    select: {
-      id: true,
-      appointmentDate: true,
-      userId: true,
-      serviceId: true,
+    order: {
+      appointmentDate: "ASC",
     },
   })
-  console.log(appointment)
+  if (!appointment) {
+    return res.status(404).json({
+      success: false,
+      message: "Appointment not found",
+    })
+  }
   res.status(200).json({
     success: true,
-    message: "Appointment founded",
-    appointment,
+    message: "Appointment showing successfuly",
+    data: appointment,
   })
+}
+
+export const updateMyAppointmentWithToken = async (
+  req: Request,
+  res: Response
+) => {
+  try {
+    const userId = req.tokenData.userId
+    const { appointmentDate, serviceId } = req.body
+    console.log(req.body)
+    console.log("========== Update my Appointment ==========")
+    console.log("==================", userId, "===================")
+
+    const appointment = await Appointment.find({
+      order: {
+        appointmentDate: "ASC",
+      },
+      where: {
+        userId: userId,
+      },
+    })
+    if (!appointment.length) {
+      return res.status(404).json({
+        success: false,
+        message: "User without appointments",
+        error: Error,
+      })
+    }
+    console.log(appointment)
+    console.log("ID appointment is:", appointment[0].id)
+    console.log("appointment", appointment[0])
+
+    const appointment1 = await Appointment.update(
+      {
+        id: appointment[0].id,
+      },
+      {
+        appointmentDate: appointmentDate,
+        serviceId: serviceId,
+      }
+    )
+    if (!appointment1) {
+      return res.status(404).json({
+        success: false,
+        message: "Appointment/s not found",
+        error: Error,
+      })
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Appointment updated successfuly",
+      appointment,
+    })
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Appointment can't be updated",
+      error: error,
+    })
+  }
 }
