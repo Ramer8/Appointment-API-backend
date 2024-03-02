@@ -81,11 +81,31 @@ export const updateService = async (req: Request, res: Response) => {
   })
 }
 
-export const deleteService = (req: Request, res: Response) => {
-  req.params.id
-  console.log(req.params.id)
-  res.status(200).json({
-    success: true,
-    message: "Service deleted",
-  })
+export const deleteService = async (req: Request, res: Response) => {
+  try {
+    console.log(req.params.id)
+
+    const serviceToRemove: any = await Service.findOneBy({
+      id: parseInt(req.params.id),
+    })
+
+    if (!serviceToRemove) {
+      return res.status(404).json({
+        success: false,
+        message: "Service can't be deleted because not exist in Data Base",
+      })
+    }
+    const serviceDeleted = await Service.delete(serviceToRemove)
+    res.status(200).json({
+      success: true,
+      message: "Service deleted",
+      serviceDeleted: serviceToRemove,
+    })
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "User can't be deleted",
+      error: error,
+    })
+  }
 }

@@ -65,7 +65,7 @@ app.put("/api/users/profile/:id", updateUserbyId)
 app.post("/api/services", auth, isSuperAdmin, createService) //ready
 app.get("/api/services", getServices) // ready
 app.put("/api/services/:id", auth, isSuperAdmin, updateService)
-app.delete("/api/services/:id", deleteService)
+app.delete("/api/services/:id", auth, isSuperAdmin, deleteService)
 
 // Appointment routes
 app.post("/api/appointments", auth, createAppointmentWithToken) // (con token) ready
