@@ -19,7 +19,7 @@ import { auth } from "./middlewares/auth"
 import { isSuperAdmin } from "./middlewares/isSuperAdmin"
 import {
   createAppointment,
-  recoverAppointmentWithId,
+  retrieveAppointmentWithId,
   showMyAppointment,
 } from "./controllers/appointmentController"
 import {
@@ -70,7 +70,7 @@ app.post("/api/appointments", createAppointment) //ready
 
 // app.put("/api/appointments", updateAppointment) // (con token)
 
-app.put("/api/appointments/:id", recoverAppointmentWithId) //ready
+app.put("/api/appointments/:id", retrieveAppointmentWithId) //ready
 
 app.get("/api/appointments", showMyAppointment) // (con token)
 

@@ -48,7 +48,10 @@ export const getAppointments = async (req: Request, res: Response) => {
   }
 }
 
-export const recoverAppointmentWithId = async (req: Request, res: Response) => {
+export const retrieveAppointmentWithId = async (
+  req: Request,
+  res: Response
+) => {
   const { id } = req.params
   const appointment = await Appointment.findOneBy({
     id: parseInt(id),
