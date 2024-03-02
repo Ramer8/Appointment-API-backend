@@ -9,8 +9,8 @@ import {
 import { LoginUser, RegisterUser } from "./controllers/authController"
 import {
   deleteUserById,
-  getUserbyEmail,
-  getUserbyId,
+  getUserProfile,
+  // getUserbyEmail,
   getUsers,
   updateUserRole,
   updateUserbyId,
@@ -53,12 +53,12 @@ app.delete("/roles/:id", deletedRoles)
 
 // users routes super_admin
 app.get("/api/users", auth, isSuperAdmin, getUsers)
-app.get("/api/users/:email", getUserbyEmail)
-app.delete("/api/users/:id", deleteUserById)
-app.put("/api/users/:id/role", updateUserRole)
+// app.get("/api/users/:email", getUserbyEmail)
+app.delete("/api/users/:id", auth, isSuperAdmin, deleteUserById)
+app.put("/api/users/:id/role", auth, isSuperAdmin, updateUserRole)
 
 // users routes
-app.get("/api/users/profile/:id", getUserbyId)
+app.get("/api/users/profile", auth, getUserProfile) //ready
 app.put("/api/users/profile/:id", updateUserbyId)
 
 // Service routes
@@ -69,13 +69,9 @@ app.delete("/api/services/:id", auth, isSuperAdmin, deleteService)
 
 // Appointment routes
 app.post("/api/appointments", auth, createAppointmentWithToken) // (con token) ready
-
 app.put("/api/appointments", auth, updateMyAppointmentWithToken) // (con token)
-
 app.put("/api/appointments/:id", retrieveAppointmentWithId) // ready
-
 app.get("/api/appointments", auth, showMyAppointmentsWithToken) // (con token)
-
 app.get(
   "/api/appointments/all",
   auth,

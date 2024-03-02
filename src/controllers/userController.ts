@@ -23,12 +23,10 @@ export const getUsers = async (req: Request, res: Response) => {
   }
 }
 
-export const getUserbyId = async (req: Request, res: Response) => {
+export const getUserProfile = async (req: Request, res: Response) => {
   try {
-    const userId = req.params.id
-
     const user = await User.findOneBy({
-      id: parseInt(userId),
+      id: req.tokenData.userId,
     })
     if (!user) {
       return res.status(404).json({
@@ -38,7 +36,7 @@ export const getUserbyId = async (req: Request, res: Response) => {
     }
     res.status(200).json({
       success: true,
-      message: "user retriever successfully",
+      message: "User retriever successfully",
       data: user,
     })
   } catch (error) {
@@ -49,33 +47,33 @@ export const getUserbyId = async (req: Request, res: Response) => {
     })
   }
 }
-export const getUserbyEmail = async (req: Request, res: Response) => {
-  try {
-    const userEmail = req.params.email
-    const user = await User.find({
-      where: {
-        email: userEmail,
-      },
-    })
-    if (!user) {
-      return res.status(404).json({
-        success: false,
-        message: "user not found",
-      })
-    }
-    res.status(200).json({
-      success: true,
-      message: "user retriever successfully",
-      data: user,
-    })
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "user can't be retriever successfully",
-      error: error,
-    })
-  }
-}
+// export const getUserbyEmail = async (req: Request, res: Response) => {
+//   try {
+//     const userEmail = req.params.email
+//     const user = await User.find({
+//       where: {
+//         email: userEmail,
+//       },
+//     })
+//     if (!user) {
+//       return res.status(404).json({
+//         success: false,
+//         message: "user not found",
+//       })
+//     }
+//     res.status(200).json({
+//       success: true,
+//       message: "user retriever successfully3333",
+//       data: user,
+//     })
+//   } catch (error) {
+//     res.status(500).json({
+//       success: false,
+//       message: "user can't be retriever successfully",
+//       error: error,
+//     })
+//   }
+// }
 
 export const updateUserRole = async (req: Request, res: Response) => {
   try {
@@ -172,7 +170,7 @@ export const deleteUserById = async (req: Request, res: Response) => {
     if (!userToRemove) {
       return res.status(404).json({
         success: false,
-        message: "User can't be deleted because not exist in DB",
+        message: "User can't be deleted because not exist in Data Base",
       })
     }
 
