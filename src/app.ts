@@ -62,9 +62,9 @@ app.get("/api/users/profile/:id", getUserbyId)
 app.put("/api/users/profile/:id", updateUserbyId)
 
 // Service routes
-app.post("/api/services", auth, createService) //ready
+app.post("/api/services", auth, isSuperAdmin, createService) //ready
 app.get("/api/services", getServices) // ready
-app.put("/api/services/:id", updateService)
+app.put("/api/services/:id", auth, isSuperAdmin, updateService)
 app.delete("/api/services/:id", deleteService)
 
 // Appointment routes

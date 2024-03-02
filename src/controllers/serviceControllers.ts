@@ -6,14 +6,10 @@ export const createService = async (req: Request, res: Response) => {
     const { name, description } = req.body
     console.log(name, "&", description)
 
-    // if (!name || !description ){
-    // }
-
-    if (name.length > 255) {
+    if (!name || !description) {
       return res.status(400).json({
         success: false,
-        message:
-          "Service name and description must be less than 255 characters",
+        message: "Service name and description can't be null",
       })
     }
     const newService = await Service.create({
@@ -58,9 +54,26 @@ export const getServices = async (req: Request, res: Response) => {
     })
   }
 }
-export const updateService = (req: Request, res: Response) => {
-  req.params.id
-  console.log(req.params.id)
+export const updateService = async (req: Request, res: Response) => {
+  const service = await Service.findOneBy({
+    id: parseInt(req.params.id),
+  })
+  if (!service) {
+    return res.status(404).json({
+      success: false,
+      message: "Service not found",
+      error: Error,
+    })
+  }
+  const serviceToUpdtade = await Service.update(
+    {
+      id: parseInt(req.params.id),
+    },
+    {
+      serviceName: req.body.service_name,
+      description: req.body.service_description,
+    }
+  )
 
   res.status(200).json({
     success: true,
