@@ -9,8 +9,8 @@ import {
 import { LoginUser, RegisterUser } from "./controllers/authController"
 import {
   deleteUserById,
+  getUserByEmailQueryFilters,
   getUserProfile,
-  // getUserbyEmail,
   getUsers,
   updateUserProfile,
   updateUserRole,
@@ -52,8 +52,8 @@ app.put("/roles/:id", updatedRoles)
 app.delete("/roles/:id", deletedRoles)
 
 // users routes super_admin
-app.get("/api/users", auth, isSuperAdmin, getUsers)
-// app.get("/api/users/:email", getUserbyEmail)
+app.get("/api/users?", auth, isSuperAdmin, getUserByEmailQueryFilters) //ready
+app.get("/api/users", auth, isSuperAdmin, getUsers) //ready
 app.delete("/api/users/:id", auth, isSuperAdmin, deleteUserById)
 app.put("/api/users/:id/role", auth, isSuperAdmin, updateUserRole)
 

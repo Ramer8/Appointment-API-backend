@@ -1,5 +1,6 @@
 import { Request, Response } from "express"
 import { User } from "../models/User"
+import { FindOperator, Like } from "typeorm"
 
 export const getUsers = async (req: Request, res: Response) => {
   try {
@@ -47,33 +48,54 @@ export const getUserProfile = async (req: Request, res: Response) => {
     })
   }
 }
-// export const getUserbyEmail = async (req: Request, res: Response) => {
-//   try {
-//     const userEmail = req.params.email
-//     const user = await User.find({
-//       where: {
-//         email: userEmail,
-//       },
-//     })
-//     if (!user) {
-//       return res.status(404).json({
-//         success: false,
-//         message: "user not found",
-//       })
-//     }
-//     res.status(200).json({
-//       success: true,
-//       message: "user retriever successfully3333",
-//       data: user,
-//     })
-//   } catch (error) {
-//     res.status(500).json({
-//       success: false,
-//       message: "user can't be retriever successfully",
-//       error: error,
-//     })
-//   }
-// }
+export const getUserByEmailQueryFilters = async (
+  req: Request,
+  res: Response
+) => {
+  try {
+    interface queryFilters {
+      email?: FindOperator<string>
+    }
+    const queryFilters: queryFilters = {}
+    if (req.query.email) {
+      queryFilters.email = Like("%" + req.query.email.toString() + "%")
+    }
+    const userEmail = req.params.email
+    const user = await User.find({
+      where: {
+        email: userEmail,
+      },
+    })
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "user not found",
+      })
+    }
+    const users = await User.find({
+      where: queryFilters,
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
+        email: true,
+        createdAt: true,
+      },
+    })
+
+    res.status(200).json({
+      success: true,
+      message: "user retriever successfully",
+      data: users,
+    })
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "user can't be retriever",
+      error: error,
+    })
+  }
+}
 
 export const updateUserRole = async (req: Request, res: Response) => {
   try {
