@@ -12,8 +12,8 @@ import {
   getUserProfile,
   // getUserbyEmail,
   getUsers,
+  updateUserProfile,
   updateUserRole,
-  updateUserbyId,
 } from "./controllers/userController"
 import { auth } from "./middlewares/auth"
 import { isSuperAdmin } from "./middlewares/isSuperAdmin"
@@ -59,7 +59,7 @@ app.put("/api/users/:id/role", auth, isSuperAdmin, updateUserRole)
 
 // users routes
 app.get("/api/users/profile", auth, getUserProfile) //ready
-app.put("/api/users/profile/:id", updateUserbyId)
+app.put("/api/users/profile", auth, updateUserProfile) //ready
 
 // Service routes
 app.post("/api/services", auth, isSuperAdmin, createService) //ready

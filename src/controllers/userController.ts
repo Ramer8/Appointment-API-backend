@@ -113,45 +113,29 @@ export const updateUserRole = async (req: Request, res: Response) => {
     })
   }
 }
-export const updateUserbyId = async (req: Request, res: Response) => {
+export const updateUserProfile = async (req: Request, res: Response) => {
   try {
-    const userId = req.params.id
-    const { first_name, last_name } = req.body
-    console.log("the new name is: ", first_name, last_name)
-
-    //validar datos
-    const user = await User.findOneBy({
-      id: parseInt(userId),
-    })
-
-    if (!user) {
-      return res.status(404).json({
-        success: false,
-        message: "user not found",
-      })
-    }
+    const userId = req.tokenData.userId
     const userUpdated = await User.update(
       {
-        id: parseInt(userId),
+        id: userId,
       },
       {
-        firstName: first_name,
-        lastName: last_name,
+        firstName: req.body.first_name,
+        lastName: req.body.last_name,
       }
     )
 
-    //responder
     res.status(200).json({
       success: true,
       message: "User updated ",
-      data: userUpdated,
-      first_name,
-      last_name,
+      firstNameUpdated: req.body.first_name,
+      lastNameUpdated: req.body.last_name,
     })
   } catch (error) {
     res.status(500).json({
       success: true,
-      message: "user can't be updated",
+      message: "User can't be updated",
       error: error,
     })
   }
