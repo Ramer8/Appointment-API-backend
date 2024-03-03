@@ -1,10 +1,10 @@
 import "dotenv/config"
 import express, { Application } from "express"
 import {
-  createdRoles,
-  deletedRoles,
+  createRoles,
+  deleteRoles,
   getRoles,
-  updatedRoles,
+  updateRoles,
 } from "./controllers/roleController"
 import { LoginUser, RegisterUser } from "./controllers/authController"
 import {
@@ -46,10 +46,10 @@ app.post("/api/auth/register", RegisterUser)
 app.post("/api/auth/login", LoginUser)
 
 // roles routes
-app.get("/roles", getRoles)
-app.post("/roles", createdRoles)
-app.put("/roles/:id", updatedRoles)
-app.delete("/roles/:id", deletedRoles)
+app.get("/roles", auth, isSuperAdmin, getRoles)
+app.post("/roles", auth, isSuperAdmin, createRoles)
+app.put("/roles/:id", auth, isSuperAdmin, updateRoles)
+app.delete("/roles/:id", auth, isSuperAdmin, deleteRoles)
 
 // users routes super_admin
 app.get("/api/users?", auth, isSuperAdmin, getUserByEmailQueryFilters) //ready

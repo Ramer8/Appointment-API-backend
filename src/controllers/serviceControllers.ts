@@ -55,30 +55,38 @@ export const getServices = async (req: Request, res: Response) => {
   }
 }
 export const updateService = async (req: Request, res: Response) => {
-  const service = await Service.findOneBy({
-    id: parseInt(req.params.id),
-  })
-  if (!service) {
-    return res.status(404).json({
+  try {
+    const service = await Service.findOneBy({
+      id: parseInt(req.params.id),
+    })
+    if (!service) {
+      return res.status(404).json({
+        success: false,
+        message: "Service not found",
+        error: Error,
+      })
+    }
+    const serviceToUpdtade = await Service.update(
+      {
+        id: parseInt(req.params.id),
+      },
+      {
+        serviceName: req.body.service_name,
+        description: req.body.service_description,
+      }
+    )
+
+    res.status(200).json({
+      success: true,
+      message: "Service updated successfuly",
+    })
+  } catch (error) {
+    res.status(500).json({
       success: false,
-      message: "Service not found",
-      error: Error,
+      message: "Service can't be deleted",
+      error: error,
     })
   }
-  const serviceToUpdtade = await Service.update(
-    {
-      id: parseInt(req.params.id),
-    },
-    {
-      serviceName: req.body.service_name,
-      description: req.body.service_description,
-    }
-  )
-
-  res.status(200).json({
-    success: true,
-    message: "Service updated successfuly",
-  })
 }
 
 export const deleteService = async (req: Request, res: Response) => {
