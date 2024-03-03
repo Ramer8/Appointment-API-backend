@@ -8,8 +8,6 @@ export const createAppointmentWithToken = async (
 ) => {
   try {
     const userId = req.tokenData.userId
-    console.log("=========== Create Appointment =========")
-
     const { appointment_date, service_id } = req.body
 
     const newAppointment = await Appointment.create({
@@ -17,8 +15,6 @@ export const createAppointmentWithToken = async (
       userId: userId,
       serviceId: service_id,
     }).save()
-    //
-    console.log(newAppointment)
     res.status(201).json({
       success: true,
       message: "Appointment created successfuly",
@@ -75,7 +71,6 @@ export const showMyAppointmentsWithToken = async (
         error: Error,
       })
     }
-    console.log(appointment)
     res.status(200).json({
       success: true,
       message: "Appointment retrieved successfuly",
@@ -99,7 +94,6 @@ export const retrieveAppointmentWithId = async (
   const appointment = await Appointment.findOneBy({
     id: parseInt(id),
   })
-  console.log(appointment)
   if (!appointment) {
     return res.status(404).json({
       success: false,
@@ -120,6 +114,17 @@ export const getAllAppointmentsSuper_admin = async (
   const appointment = await Appointment.find({
     order: {
       appointmentDate: "ASC",
+    },
+    relations: {
+      service: true,
+    },
+    select: {
+      appointmentDate: true,
+
+      service: {
+        serviceName: true,
+        description: true,
+      },
     },
   })
   if (!appointment) {

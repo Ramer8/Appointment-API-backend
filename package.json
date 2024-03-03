@@ -7,7 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./src/server.ts",
     "run-migrations": "typeorm-ts-node-commonjs migration:run -d ./src/database/db.ts",
-    "revert-migrations": "typeorm-ts-node-commonjs migration:revert -d ./src/database/db.ts"
+    "revert-migrations": "typeorm-ts-node-commonjs migration:revert -d ./src/database/db.ts",
+    "seed": "ts-node ./src/database/seeders/seeder.ts",
+    "seed_roles": "ts-node ./src/database/seeders/roleSeeder.ts",
+    "seed_users": "ts-node ./src/database/seeders/userSeeder.ts",
+    "seed_services": "ts-node ./src/database/seeders/serviceSeeder.ts",
+    "seed_appointments": "ts-node ./src/database/seeders/appointmentSeeder.ts"
   },
   "repository": {
     "type": "git",
@@ -29,6 +34,7 @@
     "typeorm": "^0.3.20"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@types/bcrypt": "^5.0.2",
     "@types/express": "^4.17.21",
     "@types/jsonwebtoken": "^9.0.6",
