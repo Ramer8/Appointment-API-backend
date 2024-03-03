@@ -24,7 +24,4 @@ export class Appointment extends BaseEntity {
   @ManyToOne(() => Service, (service) => service.appointments)
   @JoinColumn({ name: "service_id" })
   service!: Service
-  //   @OneToMany(() => Service, (service) => service.appointment)
-  //   @JoinColumn({ name: "service_id" }) //campo personalizado a la bd
-  //   service!: Service[]
 }

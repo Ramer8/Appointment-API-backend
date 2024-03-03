@@ -21,6 +21,4 @@ export class Service extends BaseEntity {
 
   @OneToMany(() => Appointment, (meet) => meet.service)
   appointments!: Appointment[]
-  //   @ManyToOne(() => Appointment, (appointment) => appointment.service)
-  //   appointment!: Appointment
 }

@@ -20,4 +20,3 @@ export const isSuperAdmin = (
     })
   }
 }
-//el id del usuario se lo puedo pasar por el token para hacer la cita en el tatoo..

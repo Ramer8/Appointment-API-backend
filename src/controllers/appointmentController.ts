@@ -39,8 +39,6 @@ export const showMyAppointmentsWithToken = async (
 ) => {
   try {
     const userId = req.tokenData.userId
-    console.log("========== Get my Appointment ==========")
-    console.log("==================", userId, "===================")
     const user = await User.find({
       where: {
         id: userId,
@@ -144,10 +142,6 @@ export const updateMyAppointmentWithToken = async (
   try {
     const userId = req.tokenData.userId
     const { appointmentDate, serviceId } = req.body
-    console.log(req.body)
-    console.log("========== Update my Appointment ==========")
-    console.log("==================", userId, "===================")
-
     const appointment = await Appointment.find({
       order: {
         appointmentDate: "ASC",
@@ -167,7 +161,7 @@ export const updateMyAppointmentWithToken = async (
     console.log("ID appointment is:", appointment[0].id)
     console.log("appointment", appointment[0])
 
-    const appointment1 = await Appointment.update(
+    const appointmentToUpdate = await Appointment.update(
       {
         id: appointment[0].id,
       },
@@ -176,7 +170,7 @@ export const updateMyAppointmentWithToken = async (
         serviceId: serviceId,
       }
     )
-    if (!appointment1) {
+    if (!appointmentToUpdate) {
       return res.status(404).json({
         success: false,
         message: "Appointment/s not found",

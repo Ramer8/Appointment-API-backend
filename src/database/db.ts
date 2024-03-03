@@ -1,10 +1,12 @@
 import "dotenv/config"
 import "reflect-metadata"
 import { DataSource } from "typeorm"
+// Migrations
 import { Roles1708988659461 } from "./migrations/1708988659461-roles"
 import { Users1709019847564 } from "./migrations/1709019847564-users"
 import { Services1709019895203 } from "./migrations/1709019895203-services"
 import { Appointments1709019870403 } from "./migrations/1709019870403-appointments"
+// Entities
 import { User } from "../models/User"
 import { Role } from "../models/Role"
 import { Appointment } from "../models/Appointment"
