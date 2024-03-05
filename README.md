@@ -235,19 +235,19 @@ app.get("/healthy", (req, res) => {
  <li >It's possible that's appear a warning message. It's doesn't matter, press "Continue Anyway".</li>
  <img style="border-radius:12px; padding:1px; width:90%; ; " src="./src/img/workbench2.png">
 
- <li>The next step is create a new schemma. Press right button mouse and choose "Create Schemma"</li>
+ <li>The next step is create a new schema. Press right button mouse and choose "Create schema"</li>
  <img style="border-radius:12px; padding:1px; width:90%; ; " src="./src/img/workbench3.png">
 
- <li>Write in the field the new schemma name. "appointmentApi" and press apply </li>
+ <li>Write in the field the new schema name. "appointmentApi" and press apply </li>
 <img style="border-radius:12px; padding:1px; width:90%; ; " src="./src/img/workbench4.png">
 
 <li>It's will appear this window and press apply again.</li>
 <img style="border-radius:12px; padding:1px; width:90%; ; " src="./src/img/workbench5.png">
 
- <li>The new schemma it was created. Press close.</li>
+ <li>The new schema it was created. Press close.</li>
 <img style="border-radius:12px; padding:1px; width:90%; ; " src="./src/img/workbench6.png">
 
-<li>You cant see in the left corner the element created</li>
+<li>You can see in the left corner the element created</li>
 <img style="border-radius:12px; padding:1px; width:90%; ; " src="./src/img/workbench7.png">
 <li>Run the previusly shorcut created to connect to the server.</li>
  </ol>
