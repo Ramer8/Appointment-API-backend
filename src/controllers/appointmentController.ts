@@ -101,6 +101,7 @@ export const retrieveAppointmentWithId = async (
   req: Request,
   res: Response
 ) => {
+  // const newid = req.query.id
   const { id } = req.params
   const appointment = await Appointment.findOneBy({
     id: parseInt(id),
@@ -137,6 +138,10 @@ export const getAllAppointmentsSuper_admin = async (
         serviceName: true,
         description: true,
       },
+      // user: {
+      //   id:true,
+      //   firstName: true
+      // }
     },
     // take: limit as number,
   })

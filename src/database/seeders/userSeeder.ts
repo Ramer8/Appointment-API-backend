@@ -2,18 +2,22 @@ import { Role } from "../../models/Role"
 import { User } from "../../models/User"
 import { AppDataSource } from "../db"
 import { faker } from "@faker-js/faker"
+import bcrypt from "bcrypt"
 
 //number of fake users we want to populate DB with
 let num_users = 20
-
+let fakeName
 // create false users to populate DB (with Faker)
 const generateFakeUsers = () => {
   const user = new User()
+  fakeName = faker.person.firstName()
   user.firstName = faker.person.firstName()
   user.lastName = faker.person.lastName()
   user.email = faker.internet.email()
   // Hardcode a hashed password
-  user.password = "$2b$08$Rj.Etm9wcVccDkV6jM8kM.fUFNgDDHO0fHCNWcKuGWcA4lZpXPsMO" // 123456
+  // user.password = "$2b$08$Rj.Etm9wcVccDkV6jM8kM.fUFNgDDHO0fHCNWcKuGWcA4lZpXPsMO" // 123456
+  // user.password = bcrypt.hashSync(`123456`,8)
+  user.password = bcrypt.hashSync(`${fakeName}`, 8)
   user.role = new Role()
   user.role.id = 1
   return user

@@ -12,7 +12,9 @@
     "seed_roles": "ts-node ./src/database/seeders/roleSeeder.ts",
     "seed_users": "ts-node ./src/database/seeders/userSeeder.ts",
     "seed_services": "ts-node ./src/database/seeders/serviceSeeder.ts",
-    "seed_appointments": "ts-node ./src/database/seeders/appointmentSeeder.ts"
+    "seed_appointments": "ts-node ./src/database/seeders/appointmentSeeder.ts",
+    "build": "tsc",
+    "start": "node ./dist/server.js"
   },
   "repository": {
     "type": "git",
