@@ -2,14 +2,13 @@
 
 ###### Tatto Shop
 
-<img style="border-radius:15px; padding:1px; width:100%;  
-; " src="./src/img/tattooShop1.jpeg/">
+<img style="border-radius:15px; padding:1px; width:100%;"  src="./src/img/tatooShop0.jpeg">
 
 Thank you very much for your interest in my project. It's the fourth project with Geekshubs Academyof of the Full Stack Development Bootcamp 🚀.
 
 <div>
 
-[![GITHUB]][github-url][![DOCKER]][docker-url][![MYSQL]][MYSQL-url][![Node][Node.JS]][Node.JS-url][![Express][Express.js]][Express.js-url] <a href="https://www.typescriptlang.org/"><img src= "https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/></a>[![js]][js-url][![JWT]][JWT-url]
+[![GITHUB]][github-url][![DOCKER]][docker-url][![MYSQL]][MYSQL-url][![Node][Node.JS]][Node.JS-url][![Express][Express.js]][Express.js-url]<a href="https://www.typescriptlang.org/"><img src= "https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/></a>[![js]][js-url][![JWT]][JWT-url]
 
 [JWT]: https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens
 [JWT-url]: https://jwt.io/
@@ -36,12 +35,10 @@ Thank you very much for your interest in my project. It's the fourth project wit
 <details>
   <summary style="font-weight:bolder" >Contents 🗂️</summary>
   <ol>
-    <li><a href="#project-description-es">Description (ES)</a></li>
-    <li><a href="#challenge">Challenge</a></li>
-    <li><a href="#database-diagram">Database diagram</a></li>
-    <li><a href="#instalation-local">Instalation</a></li>
-    <li><a href="#endpoints">Endpoints</a></li>
-    <li><a href="#project-development">Project development</a></li>
+    <li><a href="#Full Description">Full Description</a></li>
+    <li><a href="#Data Base diagram">Data Base diagram</a></li>
+    <li><a href="#Tasks">Tasks</a></li>
+    <li><a href="#instalation & Develop">Instalation & Develop</a></li>
     <li><a href="#author">Author / Contact </a></li>
   </ol>
 </details>
@@ -58,20 +55,17 @@ services offered by the studio,
   </ol>
 </details>
 
-<!-- ## Deploy 🚀
-<div align="center">
-    <a href="https://ramer8.github.io/tvInteractiva/"><strong>Url a producción </strong></a>🚀🚀🚀
-</div> -->
-
 #####Data Base Diagram
+
 <img src="./src/img/databaseDiagram.png" style="border-radius:15px">
 
 ####Tasks 📝
 
  <li> Create a Data Base</li>
 <li> Migrations & Seeders for all tables.
+<li>Create a Endpoints</li>
 <details>
-  <summary style="padding-left:15px; color:darkgray"> Create Endpoints</summary>
+  <summary style="padding-left:15px; color:darkgray"> </summary>
 <ol> 
 <li> Registration</li>
 <li> Login</li>
@@ -83,7 +77,7 @@ All non-public endpoints with corresponding middlewares
 </ol>
 </details>
 <br>
-  <div style="font-weight:bolder; font-size:1.1rem">Install & Develop ⛏️</div>
+  <div style="font-weight:bolder; font-size:1.1rem">Instalation & Develop ⛏️</div>
 <!-- End previously item -->
 <ol>
  <details>
@@ -279,6 +273,7 @@ app.get("/healthy", (req, res) => {
   <summary style="font-weight:bolder" >5. CONTROLLERS</summary>
 
 - We create controllers (in a folder on the same level with `package.json`): > `auth, roles, users, services, appointments`
+<img src="./src/img/Controllers.png/" style="border-radius:15px; width:50%">
 </details>
 
 <details>
