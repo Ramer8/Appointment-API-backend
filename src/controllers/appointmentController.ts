@@ -144,16 +144,7 @@ export const updateMyAppointmentWithToken = async (
 ) => {
   try {
     const userId = req.tokenData.userId
-
-    console.log(userId)
-
-    const ID_params = req.params.userId
-    console.log("mi params es", ID_params)
-
     const { appointmentDate, serviceId } = req.body
-
-    console.log("el id del body es", serviceId)
-    console.log(appointmentDate)
     const appointment = await Appointment.find({
       order: {
         appointmentDate: "ASC",
@@ -181,9 +172,6 @@ export const updateMyAppointmentWithToken = async (
       })
     }
     console.log(appointment)
-    console.log("ID appointment is:", appointment[0].id)
-    console.log("appointment", appointment[0])
-
     const appointmentToUpdate = await Appointment.update(
       {
         id: appointment[0].id,
