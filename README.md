@@ -77,7 +77,9 @@ All non-public endpoints with corresponding middlewares
 </ol>
 </details>
 <br>
-  <div style="font-weight:bolder; font-size:1.1rem">Instalation & Develop ⛏️</div>
+
+#### Instalation & Develop ⛏️
+
 <!-- End previously item -->
 <ol>
  <details>
@@ -90,11 +92,9 @@ All non-public endpoints with corresponding middlewares
 
 `$ docker run --name mysql-appointments -p 3309:3306 -e MYSQL_ROOT_PASSWORD=1234 -d mysql`
 
-<li>Run it</li>
+<li>Example</li>
 
 `$ mysql -h localhost -P 3306 -u root -p you will need -h (host), -P (port), -u(username) and -p (password)`
-
-`$ docker exec -it mysql-appointments bash`
 
    </ol>
 </details>
@@ -129,7 +129,7 @@ All non-public endpoints with corresponding middlewares
 
 <li>Create the 'tsconfig.json' file</li>
 
-`$ npm tsc --init`
+`$ npx tsc --init`
 
 <li>Install types/express & node</li>
 
@@ -139,16 +139,29 @@ All non-public endpoints with corresponding middlewares
 
 ` $ npm install ts-node nodemon -D`
 
-<li>Add a shorcut to the package.json's scripts:</li>
-
-`"dev": "nodemon ./src/server.ts"`
-
 <li>
   Create ".env" and ".env.example" file The .env file has the key & value
   credentials to access to the data base. It should not be visible, for this
   reason we add it to .gitingnore. The ".env.example" files have the same
   structure to build your ".env" file on your local
 </li>
+<li>Put the follow keys in .env file.</li>
+
+```js
+
+PORT =4500
+#conexion a bd
+DB_USER=root
+DB_PASSWORD=1234
+DB_PORT=3309
+DB_HOST=localhost
+DB_DATABASE=appointmentApi
+
+# JWT
+JWT_SECRET=secreto
+
+```
+
 <br />
 <li>
   Install 'dotenv' to added th depencencies and will grab data from the .env
@@ -250,15 +263,21 @@ app.get("/healthy", (req, res) => {
 <li>You can see in the left corner the element created</li>
 <img style="border-radius:12px; padding:1px; width:90%; ; " src="./src/img/workbench7.png">
 <li>Run the previusly shorcut created to connect to the server.</li>
+
+`$ npm run dev `
+
  </ol>
 </details>
 <!-- End previously item -->
 <details>
-  <summary style="font-weight:bolder; margin-top:-20px" >4. MIGRATIONS & MODELS</summary>
+  <summary style="font-weight:bolder; margin-top:-5px" >4. MIGRATIONS & MODELS</summary>
 
 - Creating MIGRATIONS [Data Definition Language (DDL): with typeorm]:
   `$ npm run run-migrations`
   `./src/database/migrations`
+
+  <li>It's possible that's need populate with one basic table before continue with the migrations
+  go to the point <a href="#11.run--project">11.Run Project</a></li>
 
 - Adding them to `DataSource.migrations` in the `db.ts` file: `Role, User, Service, Appointment`
   <img src="./src/img/migrations.png/" style="border-radius:15px; width:50%">
@@ -335,9 +354,34 @@ app.get("/healthy", (req, res) => {
 <details>
   <summary style="font-weight:bolder" >11. RUN PROJECT</summary>
   <ol>
+  <li>Clone this repository
+  </li>
+  <li>Run in terminal
+  </li>
+
+`$ npm install`
+
+  <li> Conect repository with database</li>
+
+  <li>Run migrations:</li>
+
+`$ npm run run-migrations`
+
+  <li> Run seeders:</li>
+
+`$ npm run seeders`
+
+  <li>Start server:</li>
 
 `$ npm run dev`
 
+<li>To populate the data base you must add the follow data in this way:</li>
+<li>You can select and copy ALL TEXT from the `"data.sql"` file
+- Paste it into MySQL 
+- Execute it (⚡ button) to populate a smaller example of the database
+    >file route:</li> 
+    
+    `./src/database/seeders/data.sql `
   </ol>
 </details>
 

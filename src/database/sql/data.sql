@@ -1,4 +1,4 @@
-USE appointmentAPI;
+USE appointmentApi;
 
 -- Create Roles in Data Base
 

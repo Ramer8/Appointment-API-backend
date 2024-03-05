@@ -31,11 +31,6 @@ const roleSeedDatabase = async () => {
     await AppDataSource.destroy()
   }
 }
-//funcion anonima autoexecutable
-// (async()) => {
-//   await roleSeedDatabase()
-//  await   roleSeedDatabase2()
-// }
 
 const seed = async () => {}
 
