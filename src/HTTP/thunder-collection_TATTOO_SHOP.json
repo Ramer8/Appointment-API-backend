@@ -1,0 +1,632 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "STUDIO TATTOO ",
+    "dateExported": "2024-03-05T22:36:36.787Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "072fd352-8fd9-47ae-a123-d16b37c659f1",
+            "name": "AUTH",
+            "containerId": "",
+            "created": "2024-03-01T14:37:30.027Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "52ba8aeb-d4a6-41de-af87-a155070b86ab",
+            "name": "APPOINTMENTS",
+            "containerId": "",
+            "created": "2024-03-01T14:37:30.028Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "190ba998-97a7-436a-910e-307cd464a2ad",
+            "name": "SERVICES",
+            "containerId": "",
+            "created": "2024-03-01T14:37:30.029Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "69dffc14-4ce4-4024-9417-4395b56511c3",
+            "name": "USERS",
+            "containerId": "",
+            "created": "2024-03-01T14:37:30.030Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "ede2c466-6dbb-4c16-a241-b24e5ad5061a",
+            "name": "USER PROFILE",
+            "containerId": "",
+            "created": "2024-03-02T21:52:32.194Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "8bf791fa-9f3c-4447-8307-6a1a2af8619a",
+            "name": "SUPER_ADMIN",
+            "containerId": "",
+            "created": "2024-03-03T01:39:15.961Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "fe1f77d5-cb2a-408c-a51d-813022ab024d",
+            "name": "ROLES",
+            "containerId": "",
+            "created": "2024-03-03T16:48:32.696Z",
+            "sortNum": 70000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "0993abff-40c0-4bb1-bac8-fcf1537beb18",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "8bf791fa-9f3c-4447-8307-6a1a2af8619a",
+            "name": "DELETE USER BY ID (super_admin)",
+            "url": "localhost:4500/api/users/6",
+            "method": "DELETE",
+            "sortNum": 5000,
+            "created": "2024-03-01T14:37:30.037Z",
+            "modified": "2024-03-03T01:45:30.623Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInJvbGVOYW1lIjoic3VwZXJfYWRtaW4iLCJpYXQiOjE3MDk0MzAyMzgsImV4cCI6MTcwOTQzNzQzOH0.hDcqt87kK9fd4A8XjflfL54obmgD9PeJnkqFtg1uxBw"
+            },
+            "tests": []
+        },
+        {
+            "_id": "24c2f7c9-e5bf-41bb-86c2-48cf3871cb11",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "8bf791fa-9f3c-4447-8307-6a1a2af8619a",
+            "name": "CREATE NEW SERVICE (super_admin)",
+            "url": "http://localhost:4500/api/services",
+            "method": "POST",
+            "sortNum": 7500,
+            "created": "2024-03-03T01:40:04.042Z",
+            "modified": "2024-03-03T15:44:17.680Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"nose piercing and tongue\",\n  \"description\": \"nose piercing & ring \"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMywicm9sZU5hbWUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTcwOTQ4MDU4NCwiZXhwIjoxNzA5NDg3Nzg0fQ.od_h0bSDm_FUn4nIvnejjs_rJq7LZLN2snUmm5SitcI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f04c5dc0-b88b-4c99-a641-11470bdc8183",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "8bf791fa-9f3c-4447-8307-6a1a2af8619a",
+            "name": "UPDATE SERVICE BY ID (super_admin)",
+            "url": "localhost:4500/api/services/1",
+            "method": "PUT",
+            "sortNum": 8750,
+            "created": "2024-03-03T01:40:15.960Z",
+            "modified": "2024-03-03T15:44:29.188Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"service_name\": \"red blue ink_for_brave black\",\n  \"service_descritprion\":\"upperleft back black ink\"\n}\n",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMywicm9sZU5hbWUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTcwOTQ4MDU4NCwiZXhwIjoxNzA5NDg3Nzg0fQ.od_h0bSDm_FUn4nIvnejjs_rJq7LZLN2snUmm5SitcI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "428df0ab-67c5-438a-80b9-7fc6156c492a",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "072fd352-8fd9-47ae-a123-d16b37c659f1",
+            "name": "REGISTER NEW USER",
+            "url": "localhost:4500/api/auth/register",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-01T14:37:30.027Z",
+            "modified": "2024-03-05T22:35:44.725Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"first_name\":\"Marcos\",\n \"last_name\": \"Perez\",\n  \"email\":\"markos@developer.com\",\n  \"password_hash\":\"123456\"\n}",
+                "form": []
+            },
+            "reqType": "get",
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGVOYW1lIjoic3VwZXJfYWRtaW4iLCJpYXQiOjE3MDk2NzUxNzksImV4cCI6MTcwOTY4MjM3OX0.1na4sM4BnfI9vbyT9VrYGBqMeS2LR4eC8V9WeYAxCeE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "d4378007-342b-4816-b392-5e98553080d9",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "52ba8aeb-d4a6-41de-af87-a155070b86ab",
+            "name": "DELETE APPOINTMENT BY ID",
+            "url": "localhost:4002/api/appointments/5",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2024-03-01T14:37:30.029Z",
+            "modified": "2024-03-01T14:37:30.029Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "073d7d48-0197-4823-b5c4-fa91ec1d311b",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "190ba998-97a7-436a-910e-307cd464a2ad",
+            "name": "CREATE NEW SERVICE (super_admin)",
+            "url": "http://localhost:4500/api/services",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-01T14:37:30.038Z",
+            "modified": "2024-03-03T15:50:11.271Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"Sale of piercings and other articles\",\n    \"description\": \"In addition to our application services, we offer a selection of piercings and other body art related items. Customers can purchase quality products to complement their unique style.\"}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMywicm9sZU5hbWUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTcwOTQ4MDU4NCwiZXhwIjoxNzA5NDg3Nzg0fQ.od_h0bSDm_FUn4nIvnejjs_rJq7LZLN2snUmm5SitcI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "3df8808e-b96d-4994-a3b4-7abfb8dd8ac8",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "8bf791fa-9f3c-4447-8307-6a1a2af8619a",
+            "name": "GET PROFILE BY EMAIL QUERY FILTERS (super_admin)",
+            "url": "http://localhost:4500/api/users?email=rp",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-03-03T00:29:25.098Z",
+            "modified": "2024-03-03T01:51:00.268Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "email",
+                    "value": "rp",
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInJvbGVOYW1lIjoic3VwZXJfYWRtaW4iLCJpYXQiOjE3MDk0Mjg5MzgsImV4cCI6MTcwOTQzNjEzOH0.eoeVz7Kyw5oo29fXIGpPCe8sMOn5xOO_lNHCKSeoagA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1545de24-2134-4dae-a047-0f94c7747d06",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "69dffc14-4ce4-4024-9417-4395b56511c3",
+            "name": "DELETE USER BY ID (super_admin) Copy",
+            "url": "localhost:4500/api/users/6",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2024-03-03T01:45:48.587Z",
+            "modified": "2024-03-03T01:45:48.587Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInJvbGVOYW1lIjoic3VwZXJfYWRtaW4iLCJpYXQiOjE3MDk0MzAyMzgsImV4cCI6MTcwOTQzNzQzOH0.hDcqt87kK9fd4A8XjflfL54obmgD9PeJnkqFtg1uxBw"
+            },
+            "tests": []
+        },
+        {
+            "_id": "3f3a9ea8-f3e8-4f66-9c12-db979287e544",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "072fd352-8fd9-47ae-a123-d16b37c659f1",
+            "name": "LOGIN USER",
+            "url": "localhost:4500/api/auth/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-03-01T14:37:30.028Z",
+            "modified": "2024-03-05T08:44:55.227Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"passwordBody\":\"123456\",\n  \"email\":\"super@super.com\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMywicm9sZU5hbWUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTcwOTYyODI3OSwiZXhwIjoxNzA5NjM1NDc5fQ.TS-F55gDPGVrJU7fBOa01U60a0YTw-ByD5QreZX7oEA"
+            },
+            "tests": []
+        },
+        {
+            "_id": "37339315-2c48-4db1-942c-0e022cf5464e",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "52ba8aeb-d4a6-41de-af87-a155070b86ab",
+            "name": "UPDATE APPOINTMENT BY TOKEN",
+            "url": "localhost:4500/api/appointments",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2024-03-01T14:37:30.030Z",
+            "modified": "2024-03-04T08:34:57.085Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n \"appointmentDate\": \"2024-08-09 02:05:31\",\n \"serviceId\":2\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMywicm9sZU5hbWUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTcwOTUzOTY4MywiZXhwIjoxNzA5NTQ2ODgzfQ.wbJzAVIJ1aa0vGCNNoogWQ5Qz7Xn7qBAd6f0Wthj2ew"
+            },
+            "tests": []
+        },
+        {
+            "_id": "57d348a9-2179-4128-94a2-f7976dcdd5bf",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "190ba998-97a7-436a-910e-307cd464a2ad",
+            "name": "GET ALL SERVICES",
+            "url": "localhost:4500/api/services",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-01T14:37:30.039Z",
+            "modified": "2024-03-02T19:49:27.828Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c8952e0a-073c-47d4-821a-9b5dc6ded306",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "69dffc14-4ce4-4024-9417-4395b56511c3",
+            "name": "UPDATE ROLE USER BY ID (super_admin)",
+            "url": "http://localhost:4500/api/users/1/role",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2024-03-03T01:47:47.901Z",
+            "modified": "2024-03-03T01:47:47.901Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"role_id\": 1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInJvbGVOYW1lIjoic3VwZXJfYWRtaW4iLCJpYXQiOjE3MDk0MTQ3ODgsImV4cCI6MTcwOTQyMTk4OH0.gfDL8ijQD6k_9TGANtFdmV7QIoZ-0kQzceHLv-8F11A"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f4927f5d-5045-4ef4-abf0-a3776c6533ca",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "8bf791fa-9f3c-4447-8307-6a1a2af8619a",
+            "name": "GET ALL USERS (super_admin)",
+            "url": "http://localhost:4500/api/users",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2024-03-03T01:40:51.608Z",
+            "modified": "2024-03-03T15:44:59.537Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMywicm9sZU5hbWUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTcwOTQ4MDU4NCwiZXhwIjoxNzA5NDg3Nzg0fQ.od_h0bSDm_FUn4nIvnejjs_rJq7LZLN2snUmm5SitcI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "ead78ff4-7cde-422e-b105-33cba34e2dbe",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "52ba8aeb-d4a6-41de-af87-a155070b86ab",
+            "name": "GET APPOINTMENT BY ID",
+            "url": "localhost:4500/api/appointments/450",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-03-01T14:37:30.031Z",
+            "modified": "2024-03-03T15:53:57.494Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMywicm9sZU5hbWUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTcwOTQ4MDU4NCwiZXhwIjoxNzA5NDg3Nzg0fQ.od_h0bSDm_FUn4nIvnejjs_rJq7LZLN2snUmm5SitcI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "3e09e720-2745-49ff-ba55-9d289f0c529a",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "8bf791fa-9f3c-4447-8307-6a1a2af8619a",
+            "name": "UPDATE ROLE USER BY ID (super_admin)",
+            "url": "http://localhost:4500/api/users/1/role",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-03-01T14:37:30.036Z",
+            "modified": "2024-03-02T21:32:36.921Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"role_id\": 1\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInJvbGVOYW1lIjoic3VwZXJfYWRtaW4iLCJpYXQiOjE3MDk0MTQ3ODgsImV4cCI6MTcwOTQyMTk4OH0.gfDL8ijQD6k_9TGANtFdmV7QIoZ-0kQzceHLv-8F11A"
+            },
+            "tests": []
+        },
+        {
+            "_id": "162462ea-4237-4dce-9490-bcf99e9a1363",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "190ba998-97a7-436a-910e-307cd464a2ad",
+            "name": "UPDATE SERVICE BY ID (super_admin)",
+            "url": "localhost:4500/api/services/1",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-03-01T14:37:30.040Z",
+            "modified": "2024-03-02T20:46:39.833Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"service_name\": \"red ink_for_brave black\",\n  \"service_descritprion\":\"upperleft back black ink\"\n}\n",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGVOYW1lIjoic3VwZXJfYWRtaW4iLCJpYXQiOjE3MDk0MTE2ODIsImV4cCI6MTcwOTQxODg4Mn0.FCVhzgui8O99fy_eb6KkxWtcfK44X8PLyc2iSskkkLQ"
+            },
+            "tests": []
+        },
+        {
+            "_id": "756175ae-320a-43db-8cfb-17c70855e1dd",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "52ba8aeb-d4a6-41de-af87-a155070b86ab",
+            "name": "GET MY APPOINTMENTS with TOKEN",
+            "url": "localhost:4500/api/appointments",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-03-01T14:37:30.032Z",
+            "modified": "2024-03-05T21:48:46.910Z",
+            "headers": [],
+            "params": [],
+            "reqType": "get",
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGVOYW1lIjoic3VwZXJfYWRtaW4iLCJpYXQiOjE3MDk2NzUxNzksImV4cCI6MTcwOTY4MjM3OX0.1na4sM4BnfI9vbyT9VrYGBqMeS2LR4eC8V9WeYAxCeE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0c65b53e-aba3-49d5-b1d8-27cb55c89d12",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "190ba998-97a7-436a-910e-307cd464a2ad",
+            "name": "DELETE SERVICE BY ID (super_admin)",
+            "url": "localhost:4500/api/services/5",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-03-01T14:37:30.041Z",
+            "modified": "2024-03-03T15:47:06.210Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMywicm9sZU5hbWUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTcwOTQ4MDU4NCwiZXhwIjoxNzA5NDg3Nzg0fQ.od_h0bSDm_FUn4nIvnejjs_rJq7LZLN2snUmm5SitcI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "141cad5d-232f-4e12-b36a-82e501ec67db",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "52ba8aeb-d4a6-41de-af87-a155070b86ab",
+            "name": "GET ALL APPOINTMENTS super_Admin ",
+            "url": "localhost:4500/api/appointments/all",
+            "method": "GET",
+            "sortNum": 45000,
+            "created": "2024-03-02T16:44:48.153Z",
+            "modified": "2024-03-05T21:49:01.217Z",
+            "headers": [],
+            "params": [],
+            "reqType": "get",
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGVOYW1lIjoic3VwZXJfYWRtaW4iLCJpYXQiOjE3MDk2NzUxNzksImV4cCI6MTcwOTY4MjM3OX0.1na4sM4BnfI9vbyT9VrYGBqMeS2LR4eC8V9WeYAxCeE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "28d49d7c-a018-48b6-9d23-34fe60502512",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "52ba8aeb-d4a6-41de-af87-a155070b86ab",
+            "name": "CREATE NEW APPOINTMENT",
+            "url": "http://localhost:4500/api/appointments",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-03-01T14:37:30.033Z",
+            "modified": "2024-03-05T21:48:00.834Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"appointment_date\": \"2024-04-15 22:00:00\",\n  \"service_id\": 1\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGVOYW1lIjoic3VwZXJfYWRtaW4iLCJpYXQiOjE3MDk2NzUxNzksImV4cCI6MTcwOTY4MjM3OX0.1na4sM4BnfI9vbyT9VrYGBqMeS2LR4eC8V9WeYAxCeE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a5874e05-efb8-4b24-a590-efd03ff9bad7",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "8bf791fa-9f3c-4447-8307-6a1a2af8619a",
+            "name": "UPDATE SERVICE BY ID (super_admin)",
+            "url": "localhost:4500/api/services/1",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-03-03T01:40:33.258Z",
+            "modified": "2024-03-03T01:40:33.258Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"service_name\": \"red ink_for_brave black\",\n  \"service_descritprion\":\"upperleft back black ink\"\n}\n",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGVOYW1lIjoic3VwZXJfYWRtaW4iLCJpYXQiOjE3MDk0MTE2ODIsImV4cCI6MTcwOTQxODg4Mn0.FCVhzgui8O99fy_eb6KkxWtcfK44X8PLyc2iSskkkLQ"
+            },
+            "tests": []
+        },
+        {
+            "_id": "f8b7e94e-a282-4a86-b37b-fc1aff03467b",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "8bf791fa-9f3c-4447-8307-6a1a2af8619a",
+            "name": "DELETE SERVICE BY ID (super_admin)",
+            "url": "localhost:4500/api/services/6",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2024-03-03T01:40:40.742Z",
+            "modified": "2024-03-03T01:40:40.742Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInJvbGVOYW1lIjoiYWRtaW4iLCJpYXQiOjE3MDk0MTM2NDcsImV4cCI6MTcwOTQyMDg0N30.Qf2X2BL9epl70H3KOqgou8SmkVpUETU3dw3EgdQLDfw"
+            },
+            "tests": []
+        },
+        {
+            "_id": "eaa4f7b6-e0aa-467b-88f0-0825f455c640",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "ede2c466-6dbb-4c16-a241-b24e5ad5061a",
+            "name": "GET PROFILE",
+            "url": "http://localhost:4500/api/users/profile",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-03-02T21:52:53.038Z",
+            "modified": "2024-03-03T15:45:28.996Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMywicm9sZU5hbWUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTcwOTQ4MDU4NCwiZXhwIjoxNzA5NDg3Nzg0fQ.od_h0bSDm_FUn4nIvnejjs_rJq7LZLN2snUmm5SitcI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0f311c8d-0016-4533-b8fc-bbb127f5771a",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "ede2c466-6dbb-4c16-a241-b24e5ad5061a",
+            "name": "UPDATE PROFILE ",
+            "url": "http://localhost:4500/api/users/profile",
+            "method": "PUT",
+            "sortNum": 80000,
+            "created": "2024-03-02T23:52:02.107Z",
+            "modified": "2024-03-03T15:45:49.987Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"first_name\": \"Ramiro Lionel\",\n\"last_name\":\"Poblete\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwMywicm9sZU5hbWUiOiJzdXBlcl9hZG1pbiIsImlhdCI6MTcwOTQ4MDU4NCwiZXhwIjoxNzA5NDg3Nzg0fQ.od_h0bSDm_FUn4nIvnejjs_rJq7LZLN2snUmm5SitcI"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a7ab95b8-e056-4549-a044-a164c11a26e5",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "ede2c466-6dbb-4c16-a241-b24e5ad5061a",
+            "name": "GET ALL USERS (super_admin)",
+            "url": "http://localhost:4500/api/users",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-03-01T14:37:30.035Z",
+            "modified": "2024-03-02T21:42:56.467Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsInJvbGVOYW1lIjoic3VwZXJfYWRtaW4iLCJpYXQiOjE3MDk0MTUzMDEsImV4cCI6MTcwOTQyMjUwMX0.S4F4DGPe0muErsU-4Q0iwGrWsA80CmmAwzR5HHRUtCE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "18203579-8dcb-4f67-8f64-b7531ccb4cf1",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "fe1f77d5-cb2a-408c-a51d-813022ab024d",
+            "name": "UPDATE ROLE (super_admin)",
+            "url": "http://localhost:4500/roles/3",
+            "method": "PUT",
+            "sortNum": 110000,
+            "created": "2024-03-03T16:49:40.829Z",
+            "modified": "2024-03-03T17:16:12.162Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"roleName\":\"super_admin\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "106a95b8-fa64-480e-8c29-a162282b80ed",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "fe1f77d5-cb2a-408c-a51d-813022ab024d",
+            "name": "DELETE ROLE (super_admin)",
+            "url": "http://localhost:4500/roles/8",
+            "method": "DELETE",
+            "sortNum": 115000,
+            "created": "2024-03-03T17:11:35.141Z",
+            "modified": "2024-03-03T17:14:40.885Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "149ea23a-c2bc-4497-aa3b-aafb39dd56db",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "fe1f77d5-cb2a-408c-a51d-813022ab024d",
+            "name": "CREATE ROLE (super_admin)",
+            "url": "http://localhost:4500/roles",
+            "method": "POST",
+            "sortNum": 120000,
+            "created": "2024-03-03T17:03:22.136Z",
+            "modified": "2024-03-05T02:15:23.689Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "343c5638-5b8c-4c6d-8d34-db9301593794",
+            "colId": "bdb67eae-ce8c-4227-a8c1-855cce681f7b",
+            "containerId": "fe1f77d5-cb2a-408c-a51d-813022ab024d",
+            "name": "GET ROLE (super_admin)",
+            "url": "http://localhost:4500/roles",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2024-03-03T17:04:47.281Z",
+            "modified": "2024-03-03T17:16:27.778Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

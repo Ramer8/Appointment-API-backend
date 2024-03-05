@@ -74,6 +74,14 @@ services offered by the studio,
 <li> Update Data</li>
 <li> Delete Data</li>
 All non-public endpoints with corresponding middlewares
+<ol>We can find here the collection of all endpoints in Thunder Client:
+You have to open Thunder Client
+Go to collections
+Import this file:
+</ol>
+
+`./HTTP/thunder-collection_TATTOO_SHOP.json`
+
 </ol>
 </details>
 <br>
@@ -369,7 +377,7 @@ app.get("/healthy", (req, res) => {
 
   <li> Run seeders:</li>
 
-`$ npm run seeders`
+`$ npm run seed`
 
   <li>Start server:</li>
 
