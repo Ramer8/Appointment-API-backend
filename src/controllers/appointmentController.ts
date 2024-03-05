@@ -9,7 +9,6 @@ export const createAppointmentWithToken = async (
   try {
     const userId = req.tokenData.userId
     const { appointment_date, service_id } = req.body
-
     const newAppointment = await Appointment.create({
       appointmentDate: appointment_date,
       userId: userId,
@@ -34,16 +33,7 @@ export const showMyAppointmentsWithToken = async (
   res: Response
 ) => {
   try {
-    // const limit = req.query.limit || 10
     const userId = req.tokenData.userId
-    // const user = await User.find({
-    //   where: {},
-    //   select: {
-    //     id: true,
-    //     firstName: true,
-    //     lastName: true,
-    //   },
-    // })
     const user = await User.find({
       where: {
         id: userId,
@@ -53,7 +43,6 @@ export const showMyAppointmentsWithToken = async (
         firstName: true,
         lastName: true,
       },
-      // take: limit as number,
     })
     const appointment = await Appointment.find({
       order: {
@@ -67,13 +56,11 @@ export const showMyAppointmentsWithToken = async (
       },
       select: {
         appointmentDate: true,
-
         service: {
           serviceName: true,
           description: true,
         },
       },
-      // take: limit as number,
     })
     if (!appointment) {
       return res.status(404).json({
@@ -101,7 +88,6 @@ export const retrieveAppointmentWithId = async (
   req: Request,
   res: Response
 ) => {
-  // const newid = req.query.id
   const { id } = req.params
   const appointment = await Appointment.findOneBy({
     id: parseInt(id),
@@ -123,7 +109,6 @@ export const getAllAppointmentsSuper_admin = async (
   req: Request,
   res: Response
 ) => {
-  // const limit = req.query.limit || 10
   const appointment = await Appointment.find({
     order: {
       appointmentDate: "ASC",
@@ -138,12 +123,7 @@ export const getAllAppointmentsSuper_admin = async (
         serviceName: true,
         description: true,
       },
-      // user: {
-      //   id:true,
-      //   firstName: true
-      // }
     },
-    // take: limit as number,
   })
   if (!appointment) {
     return res.status(404).json({
@@ -164,7 +144,16 @@ export const updateMyAppointmentWithToken = async (
 ) => {
   try {
     const userId = req.tokenData.userId
+
+    console.log(userId)
+
+    const ID_params = req.params.userId
+    console.log("mi params es", ID_params)
+
     const { appointmentDate, serviceId } = req.body
+
+    console.log("el id del body es", serviceId)
+    console.log(appointmentDate)
     const appointment = await Appointment.find({
       order: {
         appointmentDate: "ASC",
@@ -172,7 +161,6 @@ export const updateMyAppointmentWithToken = async (
       where: {
         userId: userId,
       },
-      //
       relations: {
         service: true,
       },
@@ -184,7 +172,6 @@ export const updateMyAppointmentWithToken = async (
           description: true,
         },
       },
-      //
     })
     if (!appointment.length) {
       return res.status(404).json({

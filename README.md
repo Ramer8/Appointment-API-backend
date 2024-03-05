@@ -1,6 +1,6 @@
 ### Appointment Manager Backend
 
-###### Tatto Shop
+###### Tattoo Shop
 
 <img style="border-radius:15px; padding:1px; width:100%;"  src="./src/img/tatooShop0.jpeg">
 
@@ -43,7 +43,7 @@ Thank you very much for your interest in my project. It's the fourth project wit
   </ol>
 </details>
 
-######The product department has asked us to develop the backend for the appointment management system for a tattoo studio.
+###### The product department has asked us to develop the backend for the appointment management system for a tattoo studio.
 
 <details>
   <summary style="font-weight:bolder">Full Description 📝</summary>
@@ -55,11 +55,11 @@ services offered by the studio,
   </ol>
 </details>
 
-#####Data Base Diagram
+##### Data Base Diagram
 
 <img src="./src/img/databaseDiagram.png" style="border-radius:15px">
 
-####Tasks 📝
+#### Tasks 📝
 
  <li> Create a Data Base</li>
 <li> Migrations & Seeders for all tables.
