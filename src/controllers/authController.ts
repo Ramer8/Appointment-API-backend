@@ -34,11 +34,12 @@ export const RegisterUser = async (req: Request, res: Response) => {
         id: 2,
       },
     }).save()
+    const { password, ...rest } = newUser
 
     return res.status(201).json({
       success: true,
       message: "User registered into DB successfully",
-      data: newUser,
+      data: rest, //Solved problem "show password" , already not show password hash.
     })
   } catch (error) {
     return res.status(500).json({
