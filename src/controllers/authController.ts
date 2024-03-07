@@ -6,9 +6,9 @@ import Jwt from "jsonwebtoken"
 export const RegisterUser = async (req: Request, res: Response) => {
   try {
     const reqMail: string = req.body.email
-    const reqFirstName: string = req.body.first_name
-    const reqLastName: string = req.body.last_name
-    const reqPass: string = req.body.password_hash
+    const reqFirstName: string = req.body.firstName
+    const reqLastName: string = req.body.lastName
+    const reqPass: string = req.body.password
 
     //Checking if exist e-mail (user) in the database
     const userDataBase = await User.findOne({
@@ -16,7 +16,6 @@ export const RegisterUser = async (req: Request, res: Response) => {
         email: reqMail,
       },
     })
-    console.log(userDataBase)
     if (userDataBase) {
       return res.status(400).json({
         success: false,
@@ -24,7 +23,6 @@ export const RegisterUser = async (req: Request, res: Response) => {
       })
     }
 
-    //
     if (reqPass.length < 6 || reqPass.length > 10) {
       return res.status(400).json({
         success: false,
@@ -49,12 +47,12 @@ export const RegisterUser = async (req: Request, res: Response) => {
         id: 1, //Problem solved, role id =2, by default now the role is 1 ,  "user" . No more is  role id =2, "admin"
       },
     }).save()
-    const { password, ...rest } = newUser
-
+    const { password, ...newUserRegistered } = newUser
+    console.log("el user es", newUser)
     return res.status(201).json({
       success: true,
-      message: "User registered into DB successfully",
-      data: rest, //Solved problem "show password" , already not show password hash.
+      message: "User registered into Data Base successfully",
+      data: newUserRegistered, //Solved problem "show password" , already not show password hash.
     })
   } catch (error) {
     return res.status(500).json({
@@ -80,15 +78,6 @@ export const LoginUser = async (req: Request, res: Response) => {
       relations: {
         role: true,
       },
-      select: {
-        id: true,
-        password: true,
-        email: true,
-        role: {
-          id: true,
-          title: true,
-        },
-      },
     })
     if (!user) {
       return res.status(400).json({
@@ -113,13 +102,12 @@ export const LoginUser = async (req: Request, res: Response) => {
         expiresIn: "2h",
       }
     )
-    console.log("soy el ", user)
-    console.log(token)
+    const { password, ...userLogged } = user
     return res.status(200).json({
       success: true,
       message: "User logged successfully",
       token: token,
-      data: user,
+      data: userLogged,
     })
   } catch (error) {
     return res.status(500).json({
