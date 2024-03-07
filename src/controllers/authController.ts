@@ -9,6 +9,21 @@ export const RegisterUser = async (req: Request, res: Response) => {
     const reqFirstName: string = req.body.first_name
     const reqLastName: string = req.body.last_name
     const reqPass: string = req.body.password_hash
+
+    //Checking if exist e-mail (user) in the database
+    const userDataBase = await User.findOne({
+      where: {
+        email: reqMail,
+      },
+    })
+    console.log(userDataBase)
+    if (userDataBase) {
+      return res.status(400).json({
+        success: false,
+        message: "This user email is already exist in owner Data Base",
+      })
+    }
+
     //
     if (reqPass.length < 6 || reqPass.length > 10) {
       return res.status(400).json({
