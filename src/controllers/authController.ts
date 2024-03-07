@@ -31,7 +31,7 @@ export const RegisterUser = async (req: Request, res: Response) => {
       email: reqMail,
       password: cryptedPass,
       role: {
-        id: 2,
+        id: 1, //Problem solved, role id =2, by default now the role is 1 ,  "user" . No more is  role id =2, "admin"
       },
     }).save()
     const { password, ...rest } = newUser
