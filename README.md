@@ -439,6 +439,15 @@ app.get("/healthy", (req, res) => {
 
 `$ npm run seed`
 
+<li> Roles Seeder</li>
+<img src="./src/img/RolesSeeder.png"/>
+<li> User Seeder</li>
+<img src="./src/img/UsersSeeder.png"/>
+<li> Service Seeder</li>
+<img src="./src/img/ServiceSeeder.png"/>
+<li> Appointment Seeder</li>
+<img src="./src/img/AppointmentsSeeder.png"/>
+
 </details>
 
 <details>
