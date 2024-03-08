@@ -12,24 +12,21 @@ const roleSeedDatabase = async () => {
 
     const roleUser = new Role()
     roleUser.title = "user"
-    // roleUser.id = 1
     await roleUser.save()
 
     const roleAdmin = new Role()
     roleAdmin.title = "admin"
-    // roleAdmin.id = 2
 
     await roleAdmin.save()
 
     const roleSuperAdmin = new Role()
     roleSuperAdmin.title = "super_admin"
-    // roleSuperAdmin.id = 3
 
     await roleSuperAdmin.save()
 
-    console.log("---------------------------")
-    console.log("Roles saved successfully")
-    console.log("---------------------------")
+    console.log("----------------------------")
+    console.log("--Roles saved successfully--")
+    console.log("----------------------------")
   } catch (error) {
     console.log(error)
   } finally {
@@ -84,8 +81,9 @@ const userSeedDatabase = async () => {
     // Fake users (with role_id = 1 by default)
     const fakeUsers = Array.from({ length: num_users - 2 }, generateFakeUsers)
     await User.save(fakeUsers)
-
-    console.log("Users saved correctly")
+    console.log("---------------------------")
+    console.log("---Users saved correctly---")
+    console.log("---------------------------")
   } catch (error) {
     console.log(error)
   } finally {
@@ -133,8 +131,9 @@ const serviceSeedDatabase = async () => {
       "In addition to our application services, we offer a selection of piercings and other body art related items. Customers can purchase quality products to complement their unique style."
     service5.id = 5
     await service5.save()
-
-    console.log("Services saved correctly")
+    console.log("----------------------------")
+    console.log("--Services saved correctly--")
+    console.log("----------------------------")
   } catch (error) {
     console.log(error)
   } finally {
@@ -154,12 +153,15 @@ let num_appointments = 100
 const generateFakeAppointments = () => {
   const appointment = new Appointment()
   appointment.appointmentDate = faker.date.future()
+
+  let randomUser = Math.floor(Math.random() * num_users + 1)
+  appointment.userId = randomUser
+
   let randomService = Math.floor(Math.random() * num_services + 1)
   appointment.serviceId = randomService
 
   return appointment
 }
-console.log(generateFakeAppointments())
 
 const appointmentSeedDatabase = async () => {
   try {
@@ -170,8 +172,9 @@ const appointmentSeedDatabase = async () => {
       generateFakeAppointments
     )
     await Appointment.save(fakeAppointments)
-
-    console.log("Appointments saved correctly")
+    console.log("------------------------------")
+    console.log("-Appointments saved correctly-")
+    console.log("------------------------------")
   } catch (error) {
     console.log(error)
   } finally {
