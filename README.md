@@ -67,11 +67,28 @@ services offered by the studio,
 <details>
   <summary style="padding-left:15px; color:darkgray"> </summary>
 <ol> 
-<li> Registration</li>
+<li> Authentication</li>
+<li> Register</li>
+
+POST `https://localhost:4500/api/auth/register`
+
 <li> Login</li>
-<li> Get Data</li>
-<li> Post Data</li>
-<li> Update Data</li>
+
+POST `https://localhost:4500/api/auth/login/`
+
+<li> Users</li>
+<li> Get All Users</li>
+
+GET `http://localhost:4500/api/users`
+
+<li> Get User Profile</li>
+
+GET `http://localhost:4500/api/users/profile`
+
+<li> Update Profile Data</li>
+
+PUT `http://localhost:4500/api/users/profile`
+
 <li> Delete Data</li>
 All non-public endpoints with corresponding middlewares
 <ol>We can find here the collection of all endpoints in Thunder Client:
@@ -92,9 +109,9 @@ Import this file:
 <ol>
  <details>
   <summary style="padding-left:1px; font-weight:bolder">1. INSTALL DOCKER
-  
+
 ![DOCKER]</summary>
- 
+
   <ol>
    <li> Install docker and run this command to get a container</li>
 
