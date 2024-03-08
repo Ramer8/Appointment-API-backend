@@ -89,15 +89,34 @@ export const retrieveAppointmentWithId = async (
   res: Response
 ) => {
   const { id } = req.params
-  const appointment = await Appointment.findOneBy({
-    id: parseInt(id),
+  const appointment = await Appointment.findOne({
+    where: {
+      id: parseInt(id),
+    },
+    relations: {
+      user: true,
+      service: true,
+    },
+    select: {
+      user: {
+        firstName: true,
+        lastName: true,
+        email: true,
+      },
+      service: {
+        serviceName: true,
+        description: true,
+      },
+    },
   })
+  console.log(appointment)
   if (!appointment) {
     return res.status(404).json({
       success: false,
       message: "Appointment not found",
     })
   }
+
   res.status(200).json({
     success: true,
     message: "Appointment showing successfuly",
