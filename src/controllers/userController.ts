@@ -105,7 +105,6 @@ export const updateUserRole = async (req: Request, res: Response) => {
     const user = await User.findOneBy({
       id: parseInt(userId),
     })
-    console.log(user)
     if (!user) {
       return res.status(404).json({
         success: false,
@@ -120,12 +119,14 @@ export const updateUserRole = async (req: Request, res: Response) => {
         roleId: parseInt(role_id),
       }
     )
-    console.log("the role id updated is ", role_id)
     //responder
     res.status(200).json({
       success: true,
       message: "Role user updated ",
-      data: roleUserUpdated,
+      newRole: role_id,
+      previewRole: user.roleId,
+      fistName: user.firstName,
+      lastName: user.lastName,
     })
   } catch (error) {
     res.status(500).json({
@@ -165,8 +166,6 @@ export const updateUserProfile = async (req: Request, res: Response) => {
 
 export const deleteUserById = async (req: Request, res: Response) => {
   try {
-    console.log(req.params.id)
-
     const userId = req.params.id
     // const userToRemove = await User.findOneBy({
     const userToRemove: any = await User.findOneBy({

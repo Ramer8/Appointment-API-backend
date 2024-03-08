@@ -171,7 +171,6 @@ export const updateMyAppointmentWithToken = async (
         error: Error,
       })
     }
-    console.log(appointment)
     const appointmentToUpdate = await Appointment.update(
       {
         id: appointment[0].id,

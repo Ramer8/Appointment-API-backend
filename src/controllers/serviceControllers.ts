@@ -4,7 +4,6 @@ import { Service } from "../models/Service"
 export const createService = async (req: Request, res: Response) => {
   try {
     const { name, description } = req.body
-    console.log(name, "&", description)
 
     if (!name || !description) {
       return res.status(400).json({
@@ -17,7 +16,6 @@ export const createService = async (req: Request, res: Response) => {
       description: description,
     }).save()
 
-    console.log(newService)
     res.status(201).json({
       success: true,
       message: "Service created successfuly",
@@ -40,7 +38,6 @@ export const getServices = async (req: Request, res: Response) => {
         description: true,
       },
     })
-    console.log(service)
     res.status(200).json({
       success: true,
       message: "Service retrieved successfuly",
@@ -91,8 +88,6 @@ export const updateService = async (req: Request, res: Response) => {
 
 export const deleteService = async (req: Request, res: Response) => {
   try {
-    console.log(req.params.id)
-
     const serviceToRemove: any = await Service.findOneBy({
       id: parseInt(req.params.id),
     })

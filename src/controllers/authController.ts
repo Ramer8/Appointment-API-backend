@@ -48,7 +48,6 @@ export const RegisterUser = async (req: Request, res: Response) => {
       },
     }).save()
     const { password, ...newUserRegistered } = newUser
-    console.log("el user es", newUser)
     return res.status(201).json({
       success: true,
       message: "User registered into Data Base successfully",
