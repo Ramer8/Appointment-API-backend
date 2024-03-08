@@ -67,8 +67,11 @@ services offered by the studio,
 <details>
   <summary style="padding-left:15px; color:darkgray"> </summary>
 <ol> 
-<li> Authentication</li>
-<li> Register</li>
+<ol style="color:green;font-weight:bolder"> Authentication</ol>
+
+---
+
+<li > Register</li>
 
 POST `https://localhost:4500/api/auth/register`
 
@@ -76,8 +79,11 @@ POST `https://localhost:4500/api/auth/register`
 
 POST `https://localhost:4500/api/auth/login/`
 
-<li> Users</li>
-<li> Get All Users</li>
+<ol style="color:green;font-weight:bolder"> Users</ol>
+
+---
+
+<li> Get All Users ></li>
 
 GET `http://localhost:4500/api/users`
 
@@ -85,21 +91,80 @@ GET `http://localhost:4500/api/users`
 
 GET `http://localhost:4500/api/users/profile`
 
+<li> Create Service </li>
+
+POST `http://localhost:4500/api/services`
+
 <li> Update Profile Data</li>
 
 PUT `http://localhost:4500/api/users/profile`
 
 <li> Delete Data</li>
-All non-public endpoints with corresponding middlewares
+
+DELETE `http:localhost:4500/api/users/6`
+
+<li> Update Role </li>
+
+PUT `http://localhost:4500/api/users/1/role`
+
+ <ol style="color:green;font-weight:bolder"> Appointments </ol>
+
+---
+
+<li> Create Appointments </li>
+
+POST `http://localhost:4500/api/appointments`
+
+<li> Update Appointments </li>
+
+POST `http://localhost:4500/api/appointments`
+
+<li> Appointment Retrieved </li>
+
+GET `http://localhost:4500/api/appointments/7`
+
+<li> Get Appointment by Id   </li>
+
+GET `http://localhost:4500/api/appointments`
+
+<ol style="color:green;font-weight:bolder"> Services </ol>
+
+---
+
+<li> Get all Services</li>
+
+GET `localhost:4500/api/services`
+
+<li>  Create new Service</li>
+
+POST `http://localhost:4500/api/services`
+
+<li> Update Service </li>
+
+POST `http://localhost:4500/api/services`
+
+<li> Delete Service </li>
+
+DELETE `localhost:4500/api/services/7`
+
+<div>
+
+`All non-public endpoints with corresponding middlewares`
+
 <ol>We can find here the collection of all endpoints in Thunder Client:
 You have to open Thunder Client
 Go to collections
 Import this file:
 </ol>
+</div>
+<br>
 
 `./HTTP/thunder-collection_TATTOO_SHOP.json`
 
 </ol>
+
+---
+
 </details>
 <br>
 
@@ -164,7 +229,7 @@ Import this file:
 
 ` $ npm install ts-node nodemon -D`
 
-<li>
+<li style="color:gray;font-weight:thin">
   Create ".env" and ".env.example" file The .env file has the key & value
   credentials to access to the data base. It should not be visible, for this
   reason we add it to .gitingnore. The ".env.example" files have the same
@@ -406,8 +471,10 @@ app.get("/healthy", (req, res) => {
 - Execute it (⚡ button) to populate a smaller example of the database
     >file route:</li> 
     
-    `./src/database/seeders/data.sql `
+    ` ./src/database/seeders/data.sql  ` 
+    
   </ol>
+  
 </details>
 
 <!-- ## Deployment -->
