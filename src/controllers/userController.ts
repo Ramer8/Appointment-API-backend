@@ -26,8 +26,19 @@ export const getUsers = async (req: Request, res: Response) => {
 
 export const getUserProfile = async (req: Request, res: Response) => {
   try {
-    const user = await User.findOneBy({
-      id: req.tokenData.userId,
+    const { userId } = req.tokenData
+    console.log(userId)
+    const user = await User.findOne({
+      where: {
+        id: userId,
+      },
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
+        email: true,
+        createdAt: true,
+      },
     })
     if (!user) {
       return res.status(404).json({
