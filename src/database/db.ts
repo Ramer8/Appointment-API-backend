@@ -4,8 +4,8 @@ import { DataSource } from "typeorm"
 // Migrations
 import { Roles1708988659461 } from "./migrations/1708988659461-roles"
 import { Users1709019847564 } from "./migrations/1709019847564-users"
-import { Services1709019895203 } from "./migrations/1709019895203-services"
-import { Appointments1709019870403 } from "./migrations/1709019870403-appointments"
+import { Services1709019870403 } from "./migrations/1709019870403-services"
+import { Appointments1709019895203 } from "./migrations/1709019895203-appointments"
 // Entities
 import { User } from "../models/User"
 import { Role } from "../models/Role"
@@ -23,8 +23,8 @@ export const AppDataSource = new DataSource({
   migrations: [
     Roles1708988659461,
     Users1709019847564,
-    Services1709019895203,
-    Appointments1709019870403,
+    Services1709019870403,
+    Appointments1709019895203,
   ],
   synchronize: false,
   logging: false,

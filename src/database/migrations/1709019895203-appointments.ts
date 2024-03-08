@@ -1,9 +1,8 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from "typeorm"
 
-export class Appointments1709019870403 implements MigrationInterface {
-
-    public async up(queryRunner: QueryRunner): Promise<void> {
-   await queryRunner.createTable(
+export class Appointments1709019895203 implements MigrationInterface {
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.createTable(
       new Table({
         name: "appointments",
         columns: [
@@ -23,12 +22,12 @@ export class Appointments1709019870403 implements MigrationInterface {
           {
             name: "user_id",
             type: "int",
-            isNullable:true
+            isNullable: true,
           },
           {
             name: "service_id",
             type: "int",
-            isNullable:true
+            isNullable: true,
           },
         ],
         foreignKeys: [
@@ -49,10 +48,7 @@ export class Appointments1709019870403 implements MigrationInterface {
     )
   }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("appointments");
-    }
-
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropTable("appointments")
+  }
 }
-
-
