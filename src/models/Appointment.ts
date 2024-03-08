@@ -7,6 +7,7 @@ import {
   PrimaryGeneratedColumn,
 } from "typeorm"
 import { Service } from "./Service"
+import { User } from "./User"
 @Entity("appointments")
 export class Appointment extends BaseEntity {
   @PrimaryGeneratedColumn()
@@ -20,6 +21,10 @@ export class Appointment extends BaseEntity {
 
   @Column({ name: "service_id" })
   serviceId!: number
+
+  @ManyToOne(() => User, (user) => user.appointments)
+  @JoinColumn({ name: "user_id" })
+  user!: User
 
   @ManyToOne(() => Service, (service) => service.appointments)
   @JoinColumn({ name: "service_id" })

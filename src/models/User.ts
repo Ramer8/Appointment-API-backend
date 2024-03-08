@@ -4,9 +4,11 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm"
 import { Role } from "./Role"
+import { Appointment } from "./Appointment"
 
 @Entity("users")
 export class User extends BaseEntity {
@@ -34,4 +36,8 @@ export class User extends BaseEntity {
   @ManyToOne(() => Role, (role) => role.users)
   @JoinColumn({ name: "role_id" })
   role!: Role
+  ///
+  @OneToMany(() => Appointment, (meet) => meet.user)
+  appointments!: Appointment[]
+  //added this relation recently
 }
