@@ -525,9 +525,9 @@ app.get("/healthy", (req, res) => {
     
   </ol>
 
-  <li>Credenciales admin & super_admin</li>
+  <li> - super_admin, admin & random user - Credentials</li>
 
-``js
+``
 
 {
 "first_name": "Super",
@@ -542,6 +542,13 @@ app.get("/healthy", (req, res) => {
 "email": "admin@admin.com"
 "password": 123456,
 "role_id": 2
+}
+{
+"first_name": "XXXX",
+"last_name": "XXXX"
+"email": "XXXX@XXXX.com"
+"password": 123456,
+"role_id": 1
 }
 `
 
