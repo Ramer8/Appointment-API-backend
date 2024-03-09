@@ -39,6 +39,7 @@ export const showMyAppointmentsWithToken = async (
         id: userId,
       },
       select: {
+        appointments: true,
         id: true,
         firstName: true,
         lastName: true,
@@ -56,6 +57,7 @@ export const showMyAppointmentsWithToken = async (
       },
       select: {
         appointmentDate: true,
+        appointmentId: true,
         service: {
           serviceName: true,
           description: true,
@@ -84,44 +86,47 @@ export const showMyAppointmentsWithToken = async (
   }
 }
 
-export const retrieveAppointmentWithId = async (
-  req: Request,
-  res: Response
-) => {
-  const { id } = req.params
-  const appointment = await Appointment.findOne({
-    where: {
-      id: parseInt(id),
-    },
-    relations: {
-      user: true,
-      service: true,
-    },
-    select: {
-      user: {
-        firstName: true,
-        lastName: true,
-        email: true,
+export const recoverAppointmentWithId = async (req: Request, res: Response) => {
+  try {
+    const appointment_id = req.params.id
+
+    const { userId } = req.tokenData
+
+    const appointment = await Appointment.find({
+      where: {
+        userId: userId,
+        appointmentId: parseInt(appointment_id),
       },
-      service: {
-        serviceName: true,
-        description: true,
+      relations: {
+        service: true,
       },
-    },
-  })
-  console.log(appointment)
-  if (!appointment) {
-    return res.status(404).json({
+      select: {
+        appointmentDate: true,
+        appointmentId: true,
+        service: {
+          serviceName: true,
+          description: true,
+        },
+      },
+    })
+    if (!appointment.length) {
+      return res.status(404).json({
+        success: false,
+        message: "Appointment id not found",
+      })
+    }
+    res.status(200).json({
+      success: true,
+      message: "Appointment id retrieved successfuly",
+      data: appointment,
+    })
+  } catch (error) {
+    res.status(500).json({
       success: false,
-      message: "Appointment not found",
+      message: "Appointment id can't be retriever successfully",
+      error: error,
     })
   }
-
-  res.status(200).json({
-    success: true,
-    message: "Appointment showing successfuly",
-    data: appointment,
-  })
 }
 
 export const getAllAppointmentsSuper_admin = async (
@@ -162,55 +167,53 @@ export const updateMyAppointmentWithToken = async (
   res: Response
 ) => {
   try {
+    const { appointmentDate, appointment_id } = req.body
     const userId = req.tokenData.userId
-    const { appointmentDate, serviceId } = req.body
     const appointment = await Appointment.find({
-      order: {
-        appointmentDate: "ASC",
-      },
       where: {
         userId: userId,
+        appointmentId: parseInt(appointment_id),
       },
       relations: {
         service: true,
       },
       select: {
         appointmentDate: true,
-
+        appointmentId: true,
         service: {
           serviceName: true,
           description: true,
         },
       },
     })
-    if (!appointment.length) {
-      return res.status(404).json({
-        success: false,
-        message: "User without appointments",
-        error: Error,
-      })
-    }
-    const appointmentToUpdate = await Appointment.update(
-      {
-        id: appointment[0].id,
-      },
-      {
-        appointmentDate: appointmentDate,
-        serviceId: serviceId,
-      }
-    )
-    if (!appointmentToUpdate) {
+    if (!appointment) {
       return res.status(404).json({
         success: false,
         message: "Appointment/s not found",
         error: Error,
       })
     }
-
+    const appointmentToUpdate = await Appointment.update(
+      {
+        id: appointment_id,
+        appointmentId: parseInt(appointment_id),
+      },
+      {
+        appointmentDate: appointmentDate,
+      }
+    )
+    if (!appointmentToUpdate.affected) {
+      return res.status(404).json({
+        success: false,
+        message: "Appointment/s not found",
+        error: Error,
+      })
+    }
     res.status(200).json({
       success: true,
       message: "Appointment updated successfuly",
       appointment,
+      newDateAppointemnt: appointmentDate,
     })
   } catch (error) {
     res.status(500).json({

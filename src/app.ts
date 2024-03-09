@@ -21,7 +21,7 @@ import { isSuperAdmin } from "./middlewares/isSuperAdmin"
 import {
   createAppointmentWithToken,
   getAllAppointmentsSuper_admin,
-  retrieveAppointmentWithId,
+  recoverAppointmentWithId,
   showMyAppointmentsWithToken,
   updateMyAppointmentWithToken,
 } from "./controllers/appointmentController"
@@ -70,9 +70,9 @@ app.delete("/api/services/:id", auth, isSuperAdmin, deleteService)
 
 // Appointment routes
 app.post("/api/appointments", auth, createAppointmentWithToken) // (con token) ready
-app.put("/api/appointments", auth, updateMyAppointmentWithToken) // (con token)
-app.put("/api/appointments/:id", auth, retrieveAppointmentWithId) // ready
-app.get("/api/appointments", auth, showMyAppointmentsWithToken) // (con token)
+app.put("/api/appointments", auth, updateMyAppointmentWithToken) //& appointment ID // (con token)
+app.put("/api/appointments/:id", auth, recoverAppointmentWithId) // ready
+app.get("/api/appointments", auth, showMyAppointmentsWithToken) //my appoinments (con token)
 app.get(
   "/api/appointments/all",
   auth,
