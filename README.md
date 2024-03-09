@@ -78,13 +78,13 @@ services offered by the studio,
 
 POST `https://localhost:4500/api/auth/register`
 
-<img src="./src/img/register.png" "/>
+<img src="./src/img/register.png"/>
 
 <li> Login</li>
 
 POST `https://localhost:4500/api/auth/login/`
 
-<img src="./src/img/login.png" "/>
+<img src="./src/img/login.png"/>
 
 ---
 
@@ -96,37 +96,37 @@ POST `https://localhost:4500/api/auth/login/`
 
 GET `http://localhost:4500/api/users`
 
-<img src="./src/img/getAllUsers.png" "/>
+<img src="./src/img/getAllUsers.png"/>
 
 <li> Get User Profile</li>
 
 GET `http://localhost:4500/api/users/profile`
 
-<img src="./src/img/getProfile.png" "/>
+<img src="./src/img/getProfile.png"/>
 
 <li> Create Service </li>
 
 POST `http://localhost:4500/api/services`
 
-<img src="./src/img/createNewService.png" "/>
+<img src="./src/img/createNewService.png"/>
 
 <li> Update Profile Data</li>
 
 PUT `http://localhost:4500/api/users/profile`
 
-<img src="./src/img/updateProfile.png" "/>
+<img src="./src/img/updateProfile.png"/>
 
 <li> Delete User by Id</li>
 
 DELETE `http:localhost:4500/api/users/6`
 
-<img src="./src/img/DeleteUserbyId.png" "/>
+<img src="./src/img/DeleteUserbyId.png"/>
 
 <li> Update Role </li>
 
 PUT `http://localhost:4500/api/users/1/role`
 
-<img src="./src/img/updateRoleUserbyId.png" "/>
+<img src="./src/img/updateRoleUserbyId.png"/>
 
 ---
 
@@ -138,19 +138,19 @@ PUT `http://localhost:4500/api/users/1/role`
 
 POST `http://localhost:4500/api/appointments`
 
-<img src="./src/img/CreateNewAppointment.png" "/>
+<img src="./src/img/CreateNewAppointment.png"/>
 
 <li> Update Appointments </li>
 
 POST `http://localhost:4500/api/appointments`
 
-<img src="./src/img/updateAppointmentByToken.png" "/>
+<img src="./src/img/updateAppointmentByToken.png"/>
 
 <li> Get Appointment by Id </li>
 
 GET `http://localhost:4500/api/appointments/109`
 
-<img src="./src/img/getAppointmenById.png" "/>
+<img src="./src/img/getAppointmenById.png"/>
 
 <li> Appointment Retrieved </li>
 
@@ -166,25 +166,25 @@ GET `http://localhost:4500/api/appointments`
 
 GET `localhost:4500/api/services`
 
-<img src="./src/img/getAllServices.png" "/>
+<img src="./src/img/getAllServices.png"/>
 
 <li>  Create new Service</li>
 
 POST `http://localhost:4500/api/services`
 
-<img src="./src/img/createNewService.png" "/>
+<img src="./src/img/createNewService.png"/>
 
 <li> Update Service </li>
 
 POST `http://localhost:4500/api/services`
 
-<img src="./src/img/updateService.png" "/>
+<img src="./src/img/updateService.png"/>
 
 <li> Delete Service </li>
 
 DELETE `localhost:4500/api/services/7`
 
-<img src="./src/img/deleteService.png" "/>
+<img src="./src/img/deleteService.png"/>
 
 <div>
 
