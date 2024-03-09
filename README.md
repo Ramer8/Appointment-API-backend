@@ -75,9 +75,13 @@ services offered by the studio,
 
 POST `https://localhost:4500/api/auth/register`
 
+<img src="./src/img/register.png" style="width:70%"/>
+
 <li> Login</li>
 
 POST `https://localhost:4500/api/auth/login/`
+
+<img src="./src/img/login.png" style="width:70%"/>
 
 <ol style="color:green;font-weight:bolder"> Users</ol>
 
@@ -87,25 +91,37 @@ POST `https://localhost:4500/api/auth/login/`
 
 GET `http://localhost:4500/api/users`
 
+<img src="./src/img/getAllUsers.png" style="width:70%"/>
+
 <li> Get User Profile</li>
 
 GET `http://localhost:4500/api/users/profile`
+
+<img src="./src/img/getProfile.png" style="width:70%"/>
 
 <li> Create Service </li>
 
 POST `http://localhost:4500/api/services`
 
+<img src="./src/img/createNewService.png" style="width:70%"/>
+
 <li> Update Profile Data</li>
 
 PUT `http://localhost:4500/api/users/profile`
 
-<li> Delete Data</li>
+<img src="./src/img/updateProfile.png" style="width:70%"/>
+
+<li> Delete User by Id</li>
 
 DELETE `http:localhost:4500/api/users/6`
+
+<img src="./src/img/DeleteUserbyId.png" style="width:70%"/>
 
 <li> Update Role </li>
 
 PUT `http://localhost:4500/api/users/1/role`
+
+<img src="./src/img/updateRoleUserbyId.png" style="width:70%"/>
 
  <ol style="color:green;font-weight:bolder"> Appointments </ol>
 
@@ -115,15 +131,21 @@ PUT `http://localhost:4500/api/users/1/role`
 
 POST `http://localhost:4500/api/appointments`
 
+<img src="./src/img/CreateNewAppointment.png" style="width:70%"/>
+
 <li> Update Appointments </li>
 
 POST `http://localhost:4500/api/appointments`
 
+<img src="./src/img/updateAppointmentByToken.png" style="width:70%"/>
+
+<li> Get Appointment by Id </li>
+
+GET `http://localhost:4500/api/appointments/109`
+
+<img src="./src/img/getAppointmenById.png" style="width:70%"/>
+
 <li> Appointment Retrieved </li>
-
-GET `http://localhost:4500/api/appointments/7`
-
-<li> Get Appointment by Id   </li>
 
 GET `http://localhost:4500/api/appointments`
 
@@ -135,18 +157,25 @@ GET `http://localhost:4500/api/appointments`
 
 GET `localhost:4500/api/services`
 
+<img src="./src/img/getAllServices.png" style="width:70%"/>
+
 <li>  Create new Service</li>
 
 POST `http://localhost:4500/api/services`
+
+<img src="./src/img/createNewService.png" style="width:70%"/>
 
 <li> Update Service </li>
 
 POST `http://localhost:4500/api/services`
 
+<img src="./src/img/updateService.png" style="width:70%"/>
+
 <li> Delete Service </li>
 
 DELETE `localhost:4500/api/services/7`
 
+<img src="./src/img/deleteService.png" style="width:70%"/>
 <div>
 
 `All non-public endpoints with corresponding middlewares`
@@ -483,7 +512,33 @@ app.get("/healthy", (req, res) => {
     ` ./src/database/seeders/data.sql  ` 
     
   </ol>
-  
+
+  <li>Credenciales admin & super_admin</li>
+
+``js
+
+{
+"first_name": "user",
+"last_name": "user"
+"email": "user@user.com"
+"password": 123456,
+"role_id": 1
+}
+{
+"first_name": "admin",
+"last_name": "admin"
+"email": "admin@admin.com"
+"password": 123456,
+"role_id": 2
+}
+{
+"first_name": "super",
+"last_name": "super"
+"email": "super@super.com"
+"password": 123456,
+"role_id": 3
+}`
+
 </details>
 
 <!-- ## Deployment -->

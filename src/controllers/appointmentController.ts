@@ -186,7 +186,7 @@ export const updateMyAppointmentWithToken = async (
         },
       },
     })
-    if (!appointment) {
+    if (!appointment.length) {
       return res.status(404).json({
         success: false,
         message: "Appointment/s not found",
