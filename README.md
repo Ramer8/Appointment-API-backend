@@ -527,7 +527,7 @@ app.get("/healthy", (req, res) => {
 
   <li> - super_admin, admin & random user - Credentials</li>
 
-``
+```
 
 {
 "first_name": "Super",
@@ -550,7 +550,7 @@ app.get("/healthy", (req, res) => {
 "password": 123456,
 "role_id": 1
 }
-`
+```
 
 </details>
 
