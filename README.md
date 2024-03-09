@@ -66,7 +66,10 @@ services offered by the studio,
 <li>Create a Endpoints</li>
 <details>
   <summary style="padding-left:15px; color:darkgray"> </summary>
-<ol> 
+<ol>
+
+---
+
 <ol style="color:green;font-weight:bolder"> Authentication</ol>
 
 ---
@@ -75,13 +78,15 @@ services offered by the studio,
 
 POST `https://localhost:4500/api/auth/register`
 
-<img src="./src/img/register.png" style="width:70%"/>
+<img src="./src/img/register.png" "/>
 
 <li> Login</li>
 
 POST `https://localhost:4500/api/auth/login/`
 
-<img src="./src/img/login.png" style="width:70%"/>
+<img src="./src/img/login.png" "/>
+
+---
 
 <ol style="color:green;font-weight:bolder"> Users</ol>
 
@@ -91,37 +96,39 @@ POST `https://localhost:4500/api/auth/login/`
 
 GET `http://localhost:4500/api/users`
 
-<img src="./src/img/getAllUsers.png" style="width:70%"/>
+<img src="./src/img/getAllUsers.png" "/>
 
 <li> Get User Profile</li>
 
 GET `http://localhost:4500/api/users/profile`
 
-<img src="./src/img/getProfile.png" style="width:70%"/>
+<img src="./src/img/getProfile.png" "/>
 
 <li> Create Service </li>
 
 POST `http://localhost:4500/api/services`
 
-<img src="./src/img/createNewService.png" style="width:70%"/>
+<img src="./src/img/createNewService.png" "/>
 
 <li> Update Profile Data</li>
 
 PUT `http://localhost:4500/api/users/profile`
 
-<img src="./src/img/updateProfile.png" style="width:70%"/>
+<img src="./src/img/updateProfile.png" "/>
 
 <li> Delete User by Id</li>
 
 DELETE `http:localhost:4500/api/users/6`
 
-<img src="./src/img/DeleteUserbyId.png" style="width:70%"/>
+<img src="./src/img/DeleteUserbyId.png" "/>
 
 <li> Update Role </li>
 
 PUT `http://localhost:4500/api/users/1/role`
 
-<img src="./src/img/updateRoleUserbyId.png" style="width:70%"/>
+<img src="./src/img/updateRoleUserbyId.png" "/>
+
+---
 
  <ol style="color:green;font-weight:bolder"> Appointments </ol>
 
@@ -131,23 +138,25 @@ PUT `http://localhost:4500/api/users/1/role`
 
 POST `http://localhost:4500/api/appointments`
 
-<img src="./src/img/CreateNewAppointment.png" style="width:70%"/>
+<img src="./src/img/CreateNewAppointment.png" "/>
 
 <li> Update Appointments </li>
 
 POST `http://localhost:4500/api/appointments`
 
-<img src="./src/img/updateAppointmentByToken.png" style="width:70%"/>
+<img src="./src/img/updateAppointmentByToken.png" "/>
 
 <li> Get Appointment by Id </li>
 
 GET `http://localhost:4500/api/appointments/109`
 
-<img src="./src/img/getAppointmenById.png" style="width:70%"/>
+<img src="./src/img/getAppointmenById.png" "/>
 
 <li> Appointment Retrieved </li>
 
 GET `http://localhost:4500/api/appointments`
+
+---
 
 <ol style="color:green;font-weight:bolder"> Services </ol>
 
@@ -157,26 +166,29 @@ GET `http://localhost:4500/api/appointments`
 
 GET `localhost:4500/api/services`
 
-<img src="./src/img/getAllServices.png" style="width:70%"/>
+<img src="./src/img/getAllServices.png" "/>
 
 <li>  Create new Service</li>
 
 POST `http://localhost:4500/api/services`
 
-<img src="./src/img/createNewService.png" style="width:70%"/>
+<img src="./src/img/createNewService.png" "/>
 
 <li> Update Service </li>
 
 POST `http://localhost:4500/api/services`
 
-<img src="./src/img/updateService.png" style="width:70%"/>
+<img src="./src/img/updateService.png" "/>
 
 <li> Delete Service </li>
 
 DELETE `localhost:4500/api/services/7`
 
-<img src="./src/img/deleteService.png" style="width:70%"/>
+<img src="./src/img/deleteService.png" "/>
+
 <div>
+
+---
 
 `All non-public endpoints with corresponding middlewares`
 
@@ -190,9 +202,9 @@ Import this file:
 
 `./HTTP/thunder-collection_TATTOO_SHOP.json`
 
-</ol>
-
 ---
+
+</ol>
 
 </details>
 <br>
@@ -518,26 +530,20 @@ app.get("/healthy", (req, res) => {
 ``js
 
 {
-"first_name": "user",
-"last_name": "user"
-"email": "user@user.com"
+"first_name": "Super",
+"last_name": "Super"
+"email": "super@super.com"
 "password": 123456,
-"role_id": 1
+"role_id": 3
 }
 {
-"first_name": "admin",
-"last_name": "admin"
+"first_name": "Admin",
+"last_name": "Admin"
 "email": "admin@admin.com"
 "password": 123456,
 "role_id": 2
 }
-{
-"first_name": "super",
-"last_name": "super"
-"email": "super@super.com"
-"password": 123456,
-"role_id": 3
-}`
+`
 
 </details>
 

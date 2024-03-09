@@ -13,15 +13,15 @@ const roleSeedDatabase = async () => {
     const roleUser = new Role()
     roleUser.title = "user"
     await roleUser.save()
-
+    roleUser.id = 1
     const roleAdmin = new Role()
     roleAdmin.title = "admin"
-
+    roleUser.id = 2
     await roleAdmin.save()
 
     const roleSuperAdmin = new Role()
     roleSuperAdmin.title = "super_admin"
-
+    roleUser.id = 3
     await roleSuperAdmin.save()
 
     console.log("----------------------------")
@@ -45,8 +45,8 @@ const generateFakeUsers = () => {
   user.email = faker.internet.email()
   // Hardcode a hashed password
   // user.password = "$2b$08$Rj.Etm9wcVccDkV6jM8kM.fUFNgDDHO0fHCNWcKuGWcA4lZpXPsMO" // 123456
-  // user.password = bcrypt.hashSync(`123456`,8)
-  user.password = bcrypt.hashSync(`${fakeName}`, 8)
+  user.password = bcrypt.hashSync(`123456`, 8)
+  // user.password = bcrypt.hashSync(`${fakeName}`, 8)
   user.role = new Role()
   user.role.id = 1
   return user

@@ -27,7 +27,6 @@ export const createAppointmentWithToken = async (
     })
   }
 }
-
 export const showMyAppointmentsWithToken = async (
   req: Request,
   res: Response
@@ -57,7 +56,7 @@ export const showMyAppointmentsWithToken = async (
       },
       select: {
         appointmentDate: true,
-        appointmentId: true,
+        id: true,
         service: {
           serviceName: true,
           description: true,
@@ -95,14 +94,14 @@ export const recoverAppointmentWithId = async (req: Request, res: Response) => {
     const appointment = await Appointment.find({
       where: {
         userId: userId,
-        appointmentId: parseInt(appointment_id),
+        id: parseInt(appointment_id),
       },
       relations: {
         service: true,
       },
       select: {
         appointmentDate: true,
-        appointmentId: true,
+        id: true,
         service: {
           serviceName: true,
           description: true,
@@ -161,7 +160,6 @@ export const getAllAppointmentsSuper_admin = async (
     data: appointment,
   })
 }
-
 export const updateMyAppointmentWithToken = async (
   req: Request,
   res: Response
@@ -172,14 +170,14 @@ export const updateMyAppointmentWithToken = async (
     const appointment = await Appointment.find({
       where: {
         userId: userId,
-        appointmentId: parseInt(appointment_id),
+        id: parseInt(appointment_id),
       },
       relations: {
         service: true,
       },
       select: {
         appointmentDate: true,
-        appointmentId: true,
+        id: true,
         service: {
           serviceName: true,
           description: true,
@@ -195,8 +193,8 @@ export const updateMyAppointmentWithToken = async (
     }
     const appointmentToUpdate = await Appointment.update(
       {
+        userId: userId,
         id: appointment_id,
-        appointmentId: parseInt(appointment_id),
       },
       {
         appointmentDate: appointmentDate,
