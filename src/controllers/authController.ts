@@ -37,7 +37,6 @@ export const RegisterUser = async (req: Request, res: Response) => {
       })
     }
     const cryptedPass = bcrypt.hashSync(reqPass, 8)
-
     const newUser = await User.create({
       firstName: reqFirstName,
       lastName: reqLastName,
