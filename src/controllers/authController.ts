@@ -93,6 +93,9 @@ export const LoginUser = async (req: Request, res: Response) => {
     }
     const token = Jwt.sign(
       {
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
         userId: user.id,
         roleName: user.role.title,
       },
@@ -101,7 +104,7 @@ export const LoginUser = async (req: Request, res: Response) => {
         expiresIn: "2h",
       }
     )
-    const { password, ...userLogged } = user
+    const { password, roleId, ...userLogged } = user
     return res.status(200).json({
       success: true,
       message: "User logged successfully",
