@@ -155,16 +155,18 @@ export const updateUserProfile = async (req: Request, res: Response) => {
         id: userId,
       },
       {
-        firstName: req.body.first_name,
-        lastName: req.body.last_name,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
       }
     )
-
+    console.log(userUpdated)
     res.status(200).json({
       success: true,
       message: "User updated ",
-      firstNameUpdated: req.body.first_name,
-      lastNameUpdated: req.body.last_name,
+      firstNameUpdated: req.body.firstName,
+      lastNameUpdated: req.body.lastName,
+      emailUpdated: req.body.email,
     })
   } catch (error) {
     res.status(500).json({
