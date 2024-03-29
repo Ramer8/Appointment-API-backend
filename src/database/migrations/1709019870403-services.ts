@@ -19,6 +19,11 @@ export class Services1709019870403 implements MigrationInterface {
             length: "255",
           },
           {
+            name: "service_image",
+            type: "varchar",
+            length: "255",
+          },
+          {
             name: "description",
             type: "text",
             length: "255",

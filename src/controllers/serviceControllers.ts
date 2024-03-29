@@ -36,6 +36,7 @@ export const getServices = async (req: Request, res: Response) => {
         id: true,
         serviceName: true,
         description: true,
+        image: true,
       },
     })
     res.status(200).json({

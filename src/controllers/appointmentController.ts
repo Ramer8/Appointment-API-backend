@@ -160,6 +160,38 @@ export const getAllAppointmentsSuper_admin = async (
     data: appointment,
   })
 }
+
+export const deleteAppointmentById = async (req: Request, res: Response) => {
+  try {
+    const userId = req.tokenData.userId
+
+    const appointmentToRemove: any = await Appointment.findOneBy({
+      userId: userId,
+      id: parseInt(req.params.id),
+    })
+
+    if (!appointmentToRemove) {
+      return res.status(404).json({
+        success: false,
+        message: "Appointment can't be deleted because not exist in Data Base",
+      })
+    }
+
+    const appointmentDeleted = await Appointment.delete(appointmentToRemove)
+
+    res.status(200).json({
+      success: true,
+      message: "Appointment deleted",
+      appointmentDeleted: appointmentToRemove,
+    })
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Appointment can't be deleted",
+      error: error,
+    })
+  }
+}
 export const updateMyAppointmentWithToken = async (
   req: Request,
   res: Response
