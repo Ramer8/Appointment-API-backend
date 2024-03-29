@@ -60,6 +60,7 @@ export const showMyAppointmentsWithToken = async (
         service: {
           serviceName: true,
           description: true,
+          id: true,
         },
       },
     })
