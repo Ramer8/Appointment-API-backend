@@ -203,7 +203,7 @@ export const updateMyAppointmentWithToken = async (
     const appointment = await Appointment.find({
       where: {
         userId: userId,
-        id: parseInt(appointment_id),
+        id: parseInt(appointment_id), // busca la cita a actualizar le paso id q quiero actualizar
       },
       relations: {
         service: true,
@@ -214,9 +214,11 @@ export const updateMyAppointmentWithToken = async (
         service: {
           serviceName: true,
           description: true,
+          id: true,
         },
       },
     })
+    console.log(appointment)
     if (!appointment.length) {
       return res.status(404).json({
         success: false,

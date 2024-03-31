@@ -10,6 +10,7 @@ import {
 } from "./controllers/roleController"
 import { LoginUser, RegisterUser } from "./controllers/authController"
 import {
+  deleteMoreThanOneUsers,
   deleteUserById,
   getUserByEmailQueryFilters,
   getUserProfile,
@@ -60,6 +61,7 @@ app.delete("/roles/:id", auth, isSuperAdmin, deleteRoles)
 app.get("/api/users?", auth, isSuperAdmin, getUserByEmailQueryFilters) //ready
 app.get("/api/users", auth, isSuperAdmin, getUsers) //ready
 app.delete("/api/users/:id", auth, isSuperAdmin, deleteUserById)
+app.delete("/api/users/", auth, isSuperAdmin, deleteMoreThanOneUsers)
 app.put("/api/users/:id/role", auth, isSuperAdmin, updateUserRole)
 
 // users routes
