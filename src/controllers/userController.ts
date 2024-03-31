@@ -201,7 +201,7 @@ export const deleteUserById = async (req: Request, res: Response) => {
     const userDeleted = await User.delete(userToRemove)
 
     res.status(200).json({
-      success: false,
+      success: true,
       message: "user deleted successfully",
       data: { userDeleted, userToRemove },
     })
@@ -243,12 +243,11 @@ export const deleteMoreThanOneUsers = async (req: Request, res: Response) => {
         message: "User/s can't be deleted because not exist in Data Base",
       })
     }
-    // const { password, ...newUserRegistered } = newUser
 
     const userDeleted = await User.delete(usersToRemove)
 
     res.status(200).json({
-      success: false,
+      success: true,
       message: "user/s deleted successfully",
       data: userDeleted,
       usersToRemove,
