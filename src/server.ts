@@ -5,7 +5,6 @@ import { AppDataSource } from "./database/db"
 const PORT = process.env.PORT || 4500
 
 const startServer = () => {
-    
   AppDataSource.initialize()
     .then(() => {
       console.log("Database Appointment API connected")
@@ -14,7 +13,8 @@ const startServer = () => {
       })
     })
     .catch((error) => {
-      console.log(error)
+      // console.log(error)
+      console.error("Failed to connect to MySQL database:", error.message)
     })
 }
 
